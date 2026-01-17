@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Button } from 'react-native';
+import getAPI from './services/api'
 
 function App() {
   const [showDetails, setShowDetails] = useState(false);
+  const [apiResult, setApiResults] = useState([]);
+
+  useEffect(() => {
+    async function loadAPI() {
+      const data = await getAPI("https://pokeapi.co/api/v2/ability")
+      setApiResults(data)
+    }
+    loadAPI()
+  }, []);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Welcome to My Single-Page App!</Text>
       
-      {/* Toggle between different UI components based on state */}
       {showDetails ? (
         <View>
           <Text>Details of the app go here...</Text>
@@ -17,8 +26,9 @@ function App() {
       ) : (
         <Button title="Show Details" onPress={() => setShowDetails(true)} />
       )}
+      <Text>{apiResult?.[0]?.name ?? "none"}</Text>
     </View>
-  );
+  ); 
 }
 
 export default App;
