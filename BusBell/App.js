@@ -27,7 +27,7 @@ function App() {
       ) : (
         <Button title="Show Details" onPress={() => setShowDetails(true)} />
       )}
-      <Text>{apiResult?.[0] ?? "none"}</Text>
+      <Text>{apiResult ?? "none"}</Text>
     </View>
   ); 
 }
