@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import getAPI from './services/api'
+import { TRANSLINK_API_KEY } from '@env'
 
 function App() {
   const [showDetails, setShowDetails] = useState(false);
@@ -8,13 +9,13 @@ function App() {
 
   useEffect(() => {
     async function loadAPI() {
-      const data = await getAPI("https://pokeapi.co/api/v2/ability")
+      const data = await getAPI(`https://gtfsapi.translink.ca/v3/gtfsrealtime?apikey=${TRANSLINK_API_KEY}`)
       setApiResults(data)
     }
     loadAPI()
   }, []);
 
-  return (
+  return ( 
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Welcome to My Single-Page App!</Text>
       
@@ -26,7 +27,7 @@ function App() {
       ) : (
         <Button title="Show Details" onPress={() => setShowDetails(true)} />
       )}
-      <Text>{apiResult?.[0]?.name ?? "none"}</Text>
+      <Text>{apiResult?.[0] ?? "none"}</Text>
     </View>
   ); 
 }
