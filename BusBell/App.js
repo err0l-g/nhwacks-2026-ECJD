@@ -6,12 +6,12 @@ function App() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to My Single-Page App!</Text>
+      <Text>Welcome to My Single-Page App! Edit</Text>
       
       {/* Toggle between different UI components based on state */}
       {showDetails ? (
         <View>
-          <Text>Details of the app go here...</Text>
+          <Text>Details of the app go here</Text>
           <Button title="Hide Details" onPress={() => setShowDetails(false)} />
         </View>
       ) : (
