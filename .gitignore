@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Expo & Metro
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+.metro-health-check*
+
+# Android Native 
+android/build/
+android/.gradle/
+android/app/build/
+android/local.properties
+android/GeneratedPluginRegistrant.java
+android/.cxx/
+android/*.iml
+
+# iOS Native
+ios/build/
+ios/Pods/
+ios/.xccheckout
+ios/*.moved-aside
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+
+# Keys & Secrets 
+
+*.jks
+*.p8
+*.p12
+*.key
+*.keystore
+*.mobileprovision
+.env*.local
+
+# Debug & Logs 
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+logs
+*.log
+
+# System Files 
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+desktop.ini
+
+# Tools
+.idea/
+.vscode/
+*.tsbuildinfo
