@@ -94,6 +94,39 @@ app.get('/api/stops/search', async (req, res) => {
   }
 });
 
+// Get all stops
+app.get('/api/stops', async (req, res) => {
+  try {
+    const stops = await sql`
+      SELECT * FROM stops
+      ORDER BY stop_name
+    `;
+    res.json(stops);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Advanced search: filter stops by stop_name, stop_id, or stop_code only
+app.get('/api/stops/advanced-search', async (req, res) => {
+  try {
+    const { q } = req.query;
+    // Search by stop name, stop_id, or stop_code only (not routes)
+    const stops = await sql`
+      SELECT * FROM stops
+      WHERE 
+        stop_name ILIKE ${'%' + q + '%'}
+        OR stop_id ILIKE ${'%' + q + '%'}
+        OR stop_code ILIKE ${'%' + q + '%'}
+      ORDER BY stop_name
+      LIMIT 100
+    `;
+    res.json(stops);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Get routes with trip counts
 app.get('/api/routes/stats', async (req, res) => {
   try {

@@ -11,12 +11,12 @@ import {
   deleteAlarm
 } from './src/db/local-db-helper';
 
-export default function App() {
+export default function App() { 
   const [currentScreen, setCurrentScreen] = useState('Home');
   const [alarms, setAlarms] = useState([]);
   const [editingAlarm, setEditingAlarm] = useState(null);
 
-  const SCREEN_HEIGHT = Dimensions.get('window').height;
+  const SCREEN_HEIGHT = Dimensions.get('window').height; 
   const slideAnim = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
 
   const handleToggle = async (id) => {

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList, StatusBar, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { advancedSearchStops } from '../db/gtfs_static_db_helper';
 
 const ALL_STOPS = [
   { id: '51234', route: '33 UBC', stopName: 'E 33 Ave @ Fraser St' },
@@ -13,6 +14,7 @@ export default function StopSelection({ onBack, onSelect }) {
   const [schedules, setSchedules] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedTimeIndex, setSelectedTimeIndex] = useState(null);
+  const [filteredStops, setFilteredStops] = useState([])
 
   useEffect(() => {
     if (selectedStop) {
@@ -22,12 +24,22 @@ export default function StopSelection({ onBack, onSelect }) {
         setSchedules([
           { time: '10:15 AM' },
           { time: '10:35 AM' }
-        ]);
-        setLoading(false);
+        ]); 
+        setLoading(false); 
       }, 800);
       return () => clearTimeout(timer);
     }
-  }, [selectedStop]);
+
+    const search_stops = async () => {
+      console.log(searchQuery)
+      const stops = await advancedSearchStops(searchQuery)
+      if(stops.length >= 0)
+      {
+        setFilteredStops(stops) 
+      }
+    }
+    search_stops()
+  }, [selectedStop, searchQuery]);
 
   const handleTimeSelection = (index) => {
     setSelectedTimeIndex(index);
@@ -48,9 +60,8 @@ export default function StopSelection({ onBack, onSelect }) {
     date.setMilliseconds(0);
 
     const result = {
-      id: selectedStop.id,
-      stopName: selectedStop.stopName,
-      route: selectedStop.route,
+      id: selectedStop.stop_id,
+      stopName: selectedStop.stop_name,
       time: date
     };
 
@@ -65,12 +76,12 @@ export default function StopSelection({ onBack, onSelect }) {
             <Ionicons name="chevron-back" size={24} color="#2F3E46" />
           </TouchableOpacity>
           <Text style={[styles.rowLabel, { flex: 1 }]} numberOfLines={1}>
-            {selectedStop.stopName}
+            {selectedStop.stop_name}
           </Text>
         </View>
 
         <View style={styles.listContent}>
-          <Text style={styles.sectionTitle}>Bus Schedule for #{selectedStop.id}:</Text>
+          <Text style={styles.sectionTitle}>Bus Schedule for #{selectedStop.stop_id}:</Text>
           {loading ? (
             <ActivityIndicator color="#84A98C" style={{ marginTop: 20 }} />
           ) : (
@@ -98,10 +109,10 @@ export default function StopSelection({ onBack, onSelect }) {
     );
   }
 
-  const filteredStops = ALL_STOPS.filter(stop =>
-    stop.stopName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    stop.id.includes(searchQuery)
-  );
+  // const filteredStops = ALL_STOPS.filter(stop =>
+  //   stop.stopName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //   stop.id.includes(searchQuery)
+  // );
 
   return (
     <View style={styles.container}>
@@ -123,12 +134,11 @@ export default function StopSelection({ onBack, onSelect }) {
 
       <FlatList
         data={filteredStops}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.stop_id}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.row} onPress={() => setSelectedStop(item)}>
             <View>
-              <Text style={styles.rowLabel}>{item.route}</Text>
-              <Text style={styles.stopNumber}>#{item.id} - {item.stopName}</Text>
+              <Text style={styles.stopNumber}>#{item.stop_id} - {item.stop_name}</Text>
             </View>
             <Ionicons name="chevron-forward" size={22} color="#84A98C" />
           </TouchableOpacity>
