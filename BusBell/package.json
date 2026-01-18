@@ -10,11 +10,16 @@
   },
   "dependencies": {
     "csv-parse": "^6.1.0",
+    "lokijs": "^1.5.12",
+    "buffer": "^6.0.3",
     "expo": "~54.0.31",
     "expo-status-bar": "~3.0.9",
-    "lokijs": "^1.5.12",
+    "gtfs-realtime-bindings": "^1.1.1",
     "react": "19.1.0",
-    "react-native": "0.81.5"
+    "react-native": "0.81.5",
+    "react-native-config": "^1.6.1",
+    "react-native-get-random-values": "^2.0.0",
+    "react-native-maps": "1.20.1"
   },
   "private": true,
   "devDependencies": {
