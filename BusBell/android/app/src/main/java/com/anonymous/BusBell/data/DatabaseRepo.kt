@@ -8,9 +8,7 @@ import java.util.Calendar
  * Reads the React Native SQLite database directly.
  */
 object DatabaseRepo {
-
-    // Adjust this filename to match your React Native SQLite configuration!
-    private const val DB_NAME = "BusBell.db"
+    private const val DB_NAME = "busbell.db"
 
     data class AlarmConfig(
         val id: Int,
@@ -33,7 +31,7 @@ object DatabaseRepo {
         try {
             // QUERY: Select specific columns using the ID
             val cursor = db.rawQuery(
-                "SELECT stopID, busRoute, threshold, days, time, isEnabled FROM AlarmsTable WHERE d = ?",
+                "SELECT stopID, busRoute, threshold, days, time, isEnabled FROM alarms WHERE id = ?",
                 arrayOf(alarmId.toString())
             )
 
@@ -53,7 +51,7 @@ object DatabaseRepo {
                     id = alarmId,
                     stopId = stopId,
                     routeId = routeId,
-                    thresholdMins = thresholdMs / 60000, // Convert MS -> Mins
+                    thresholdMins = thresholdMs / 60000,
                     days = daysArray,
                     isEnabled = enabledInt > 0,
                     targetHour = hour,
