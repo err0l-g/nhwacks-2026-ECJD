@@ -2,6 +2,8 @@ package com.anonymous.BusBell.data
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
+import java.io.File
 import java.util.Calendar
 
 /**
@@ -22,9 +24,21 @@ object DatabaseRepo {
     )
 
     fun getAlarmById(context: Context, alarmId: Int): AlarmConfig? {
-        val dbFile = context.getDatabasePath(DB_NAME)
-        if (!dbFile.exists()) return null
+        debugPrintAllAlarms(context)
 
+        var dbFile = File(context.filesDir, "SQLite/$DB_NAME")
+        if (!dbFile.exists()) {
+            dbFile = context.getDatabasePath(DB_NAME)
+        }
+        if (!dbFile.exists()) {
+            dbFile = File(context.filesDir.parentFile, "databases/$DB_NAME")
+        }
+        Log.i("DatabaseRepo", "Final DB path being used: ${dbFile.absolutePath}")
+
+        if (!dbFile.exists()) {
+            Log.e("DatabaseRepo", "CRITICAL: Database file not found in any known location.")
+            return null
+        }
         val db = SQLiteDatabase.openDatabase(dbFile.path, null, SQLiteDatabase.OPEN_READONLY)
         var config: AlarmConfig? = null
 
@@ -90,5 +104,37 @@ object DatabaseRepo {
         // Example: if stored as "08:30"
         val parts = timeStr.substringAfter("T").split(":")
         return Pair(parts[0].toInt(), parts[1].toInt())
+    }
+
+    fun debugPrintAllAlarms(context: Context) {
+        val dbFile = File(context.filesDir, "SQLite/$DB_NAME")
+        if (!dbFile.exists()) {
+            Log.e("DatabaseRepo", "Debug: DB File not found at ${dbFile.absolutePath}")
+            return
+        }
+
+        val db = SQLiteDatabase.openDatabase(dbFile.path, null, SQLiteDatabase.OPEN_READONLY)
+        try {
+            // Query the entire table
+            val cursor = db.rawQuery("SELECT * FROM alarms", null)
+            Log.i("DatabaseRepo", "--- FULL DB DUMP START (Total: ${cursor.count} rows) ---")
+
+            // Print column names first so you know the order
+            Log.i("DatabaseRepo", "Columns: ${cursor.columnNames.joinToString(" | ")}")
+
+            while (cursor.moveToNext()) {
+                val rowData = StringBuilder()
+                for (i in 0 until cursor.columnCount) {
+                    rowData.append("${cursor.columnNames[i]}: ${cursor.getString(i)} | ")
+                }
+                Log.i("DatabaseRepo", "ROW: $rowData")
+            }
+            cursor.close()
+            Log.i("DatabaseRepo", "--- FULL DB DUMP END ---")
+        } catch (e: Exception) {
+            Log.e("DatabaseRepo", "Debug dump failed", e)
+        } finally {
+            db.close()
+        }
     }
 }

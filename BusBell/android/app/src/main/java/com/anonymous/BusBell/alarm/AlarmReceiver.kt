@@ -13,7 +13,6 @@ class AlarmReceiver : BroadcastReceiver() {
         val id = intent.getIntExtra(Constants.KEY_ALARM_ID, 0)
         if (id == 0) return
 
-
         val serviceIntent = Intent(context, NotificationService::class.java).apply {
             Log.i("AlarmReceiver", "Waking up service")
 
@@ -22,10 +21,8 @@ class AlarmReceiver : BroadcastReceiver() {
         }
 
         ContextCompat.startForegroundService(context, serviceIntent)
-
         val hour = intent.getIntExtra(Constants.KEY_TARGET_HOUR, 8)
         val min = intent.getIntExtra(Constants.KEY_TARGET_MINUTE, 0)
-
         AlarmScheduler.schedule(context, id, hour, min)
     }
 }
