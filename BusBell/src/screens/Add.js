@@ -43,9 +43,7 @@ export default function Add({ onBack, onSave }) {
     ).join('');
 
     const thresholdMs = selectedThreshold * 60 * 1000;
-    
-    // FIX 1: Removed Date.now() ID generation to prevent Integer Overflow.
-    // We send the data without an ID, and wait for the DB to assign one.
+  
 
     const alarmData = {
       label: label,
@@ -55,6 +53,8 @@ export default function Add({ onBack, onSave }) {
       stopID: selectedStop.id,
       stopName: selectedStop.stopName,
       busRoute: selectedStop.route,
+      busRouteId: selectedStop.busRouteId, 
+      tripIds: selectedStop.tripIds,
       isEnabled: 1 
     };
 

@@ -89,26 +89,6 @@ export default function App() {
     setup();
   }, []);
 
-const saveAlarm = async (newAlarm) => {
-    try {
-      const result = await insertAlarm({
-        ...newAlarm,
-        isEnabled: true
-      });
-
-      const updatedAlarms = await getAlarms();
-      setAlarms(updatedAlarms);
-      setCurrentScreen('Home');
-
-      return result?.lastInsertRowId || result; 
-
-    } catch (e) {
-      console.error(e);
-      Alert.alert("Error", "Failed to save alarm");
-      return null;
-    }
-  };
-
   useEffect(() => {
     Animated.timing(slideAnim, {
       toValue: currentScreen === 'Add' ? 100 : SCREEN_HEIGHT,
