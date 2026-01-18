@@ -30,7 +30,7 @@ const AlarmCard = ({ item, onToggleAlarm, onPressCard }) => {
         outputRange: [0.6, 1],
     });
 
-    const [rawHour, displayMinute] = item.time.split(":");
+    const [rawHour, displayMinute] = item.time ? item.time.split(":") : ["12", "00"]; // for noww
     const hourInt = parseInt(rawHour, 10);
 
     const ampm = hourInt >= 12 ? 'PM' : 'AM';
