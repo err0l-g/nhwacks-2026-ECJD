@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     padding: 24 
   },
   headerContainer: {
-    marginTop: 40,
+    marginTop: 60,
     marginBottom: 40,
   },
   header: { 
