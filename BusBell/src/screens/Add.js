@@ -1,8 +1,36 @@
-import React from 'react';
+import { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Add({ onBack }) {
+  const [isRepeatExpanded, setIsRepeatExpanded] = useState(false);
+  const [selectedDays, setSelectedDays] = useState([]);
+
+  const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+  const toggleDay = (index) => {
+    if (selectedDays.includes(index)) {
+      setSelectedDays(selectedDays.filter(i => i !== index));
+    } else {
+      setSelectedDays([...selectedDays, index]);
+    }
+  };
+
+  const getRepeatLabel = () => {
+  if (selectedDays.length === 0) return 'Never';
+  if (selectedDays.length === 7) return 'Everyday';
+  
+  const isWeekday = selectedDays.length === 5 && 
+                    [1, 2, 3, 4, 5].every(d => selectedDays.includes(d));
+  if (isWeekday) return 'Every Weekday';
+
+  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  return selectedDays
+    .sort((a, b) => a - b)
+    .map(index => dayNames[index])
+    .join(', ') + ' ';
+};
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -44,13 +72,41 @@ export default function Add({ onBack }) {
             <Text style={[styles.rowValue, { color: '#52796F' }]}>5 mins</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.row, { borderBottomWidth: 0 }]}>
+          <TouchableOpacity 
+            style={[styles.row, { borderBottomWidth: isRepeatExpanded ? 0 : 1 }]} 
+            onPress={() => setIsRepeatExpanded(!isRepeatExpanded)}
+          >
             <Text style={styles.rowLabel}>Repeat</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Text style={styles.rowValue}>Daily </Text>
-              <Ionicons name="chevron-forward" size={16} color="#84A98C" />
+              <Text style={styles.rowValue}>
+                {getRepeatLabel()}
+              </Text>
+              <Ionicons 
+                name={isRepeatExpanded ? "chevron-down" : "chevron-forward"} 
+                size={16} 
+                color="#84A98C" 
+              />
             </View>
           </TouchableOpacity>
+
+          {isRepeatExpanded && (
+            <View style={styles.daysContainer}>
+              {days.map((day, index) => {
+                const isSelected = selectedDays.includes(index);
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    style={[styles.dayCircle, isSelected && styles.dayCircleSelected]}
+                    onPress={() => toggleDay(index)}
+                  >
+                    <Text style={[styles.dayText, isSelected && styles.dayTextSelected]}>
+                      {day}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+          )}
         </View>
       </ScrollView>
     </View>
@@ -110,5 +166,31 @@ const styles = StyleSheet.create({
     paddingVertical: 0, 
     includeFontPadding: false, // Ensures no extra space on Android
     textAlignVertical: 'center', // Centers text vertically within its container
-  }
+  },
+  daysContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+  },
+  dayCircle: {
+    width: 35,
+    height: 35,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: '#84A98C',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  dayCircleSelected: {
+    backgroundColor: '#84A98C',
+  },
+  dayText: {
+    color: '#84A98C',
+    fontWeight: '600',
+    fontSize: 12,
+  },
+  dayTextSelected: {
+    color: '#FFF',
+  },
 });
