@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList, StatusBar, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { advancedSearchStops } from '../db/gtfs_static_db_helper';
+import { advancedSearchStops, getRoutesByStopCode } from '../db/gtfs_static_db_helper';
 
 const ALL_STOPS = [
   { id: '51234', route: '33 UBC', stopName: 'E 33 Ave @ Fraser St' },
@@ -20,11 +20,10 @@ export default function StopSelection({ onBack, onSelect }) {
     if (selectedStop) {
       setLoading(true);
       setSelectedTimeIndex(null);
-      const timer = setTimeout(() => {
-        setSchedules([
-          { time: '10:15 AM' },
-          { time: '10:35 AM' }
-        ]); 
+      const timer = setTimeout(async () => {
+        const routesStoppingHere = await getRoutesByStopCode(selectedStop.stop_code)
+        console.log(routesStoppingHere)
+        setSchedules(routesStoppingHere); 
         setLoading(false); 
       }, 800);
       return () => clearTimeout(timer);
@@ -43,8 +42,8 @@ export default function StopSelection({ onBack, onSelect }) {
 
   const handleTimeSelection = (index) => {
     setSelectedTimeIndex(index);
-    
-    const timeString = schedules[index].time;
+    console.log(schedules[index])
+    const timeString = schedules[index].route_short_name;
     
     const date = new Date();
     
@@ -108,11 +107,6 @@ export default function StopSelection({ onBack, onSelect }) {
       </View>
     );
   }
-
-  // const filteredStops = ALL_STOPS.filter(stop =>
-  //   stop.stopName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  //   stop.id.includes(searchQuery)
-  // );
 
   return (
     <View style={styles.container}>
