@@ -6,6 +6,7 @@ import {
     Switch,
     Animated
 } from 'react-native';
+import DayCircles from './DayCircles';
 
 const AlarmCard = ({ item, onToggleAlarm }) => {
     const animatedValue = useRef(new Animated.Value(item.isEnabled ? 1 : 0)).current;
@@ -35,7 +36,7 @@ const AlarmCard = ({ item, onToggleAlarm }) => {
     const displayHour = hourInt % 12 || 12;
 
     const thresholdMinutes = Math.round(item.threshold / 60000);
-
+    
     return (
         <Animated.View style={[styles.card, { backgroundColor, opacity }]}>
             <View style={styles.cardHeader}>
@@ -46,24 +47,22 @@ const AlarmCard = ({ item, onToggleAlarm }) => {
                 <Switch
                     trackColor={{ false: "#b1b7ac", true: "#84A98C" }}
                     thumbColor={"#FFF"}
-                    ios_backgroundColor="#CAD2C5"
                     onValueChange={() => onToggleAlarm(item.id)}
                     value={item.isEnabled}
                 />
             </View>
 
             <View style={styles.cardBody}>
-                <Text style={styles.routeText}>
-                    {item.busRoute} - {item.stopName}
-                </Text>
+                <Text style={styles.routeText}>{item.busRoute} - {item.stopName}</Text>
 
                 <View style={styles.thresholdContainer}>
-                    <Text style={styles.infoText}>
-                        🔔 {thresholdMinutes} minutes before
-                    </Text>
+                    <Text style={styles.infoText}>🔔 {thresholdMinutes} minutes before</Text>
                 </View>
 
-                <Text style={styles.daysText}>{item.label || "Alarm"}, {item.days}</Text>
+                <View style={styles.cardFooter}>
+                    <Text style={styles.label}>{item.label || "Alarm"}</Text>
+                    <DayCircles daysString={item.days} />
+                </View>
             </View>
         </Animated.View>
     );
@@ -120,6 +119,17 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     daysText: {
+        fontSize: 14,
+        color: '#52796F',
+        fontWeight: '500',
+    },
+    cardFooter: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 6,
+    },
+    label: {
         fontSize: 14,
         color: '#52796F',
         fontWeight: '500',
