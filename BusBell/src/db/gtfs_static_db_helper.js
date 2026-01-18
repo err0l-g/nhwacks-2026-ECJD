@@ -83,6 +83,16 @@ export const searchStops = async (searchTerm) => {
   return await apiCall(`/stops/search?${params}`);
 };
 
+// Get routes that serve a specific stop (by stop_code)
+export const getRoutesByStopCode = async (stopCode) => {
+  return await apiCall(`/stops/${stopCode}/routes`);
+};
+
+// Get trips by route short name
+export const getTripsByRouteShortName = async (routeShortName) => {
+  return await apiCall(`/routes/name/${routeShortName}/trips`);
+};
+
 export default {
   testConnection,
   getAllRoutes,
@@ -90,4 +100,6 @@ export default {
   getTripsByRoute,
   getStopsByLocation,
   searchStops,
+  getRoutesByStopCode,
+  getTripsByRouteShortName,
 };

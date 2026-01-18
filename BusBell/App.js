@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, ActivityIndicator, ScrollView } from 'react-native';
 import { getAllTransitData } from './api/live-data-api.js';
-import {testConnection, getTripsByRoute } from './src/db/gtfs_static_db_helper.js'
+import {testConnection, getTripsByRoute, getRoutesByStopCode, getTripsByRouteShortName } from './src/db/gtfs_static_db_helper.js'
 
 export default function App() {
   const [busPositions, setBusPosition] = useState(null);
@@ -34,6 +34,12 @@ const setup = async () => {
         const trips = await getTripsByRoute('10232');
         console.log(`Found ${trips.length} trips`);
         console.log(trips[0]) 
+        const routes = await getRoutesByStopCode(59701)
+        console.log(`get routes from stop code: `)
+        console.log(routes)
+        const trips_from_name = await getTripsByRouteShortName(routes[0].route_short_name)
+        console.log(`get trips from route name (index 0 shown)`)
+        console.log(trips_from_name[0])
       }
     } catch (error) {
       console.error("Setup error:", error);

@@ -112,6 +112,45 @@ app.get('/api/routes/stats', async (req, res) => {
   }
 });
 
+// Get route_short_name from routes given stop_code from stops
+app.get('/api/stops/:stopCode/routes', async (req, res) => {
+  try {
+    const { stopCode } = req.params;
+    
+    // This assumes you have a stop_times table that links stops to trips
+    // If you don't have stop_times, you'll need to adjust this query
+    const routes = await sql`
+      SELECT DISTINCT r.route_short_name, r.route_long_name, r.route_id
+      FROM routes r
+      JOIN trips t ON r.route_id = t.route_id
+      JOIN stop_times st ON t.trip_id = st.trip_id
+      JOIN stops s ON st.stop_id = s.stop_id
+      WHERE s.stop_code = ${stopCode}
+      ORDER BY r.route_short_name
+    `;
+    res.json(routes);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get trip_id from trips given route_short_name from routes
+app.get('/api/routes/name/:routeShortName/trips', async (req, res) => {
+  try {
+    const { routeShortName } = req.params;
+    const trips = await sql`
+      SELECT t.trip_id, t.trip_headsign, t.direction_id, t.service_id
+      FROM trips t
+      JOIN routes r ON t.route_id = r.route_id
+      WHERE r.route_short_name = ${routeShortName}
+      ORDER BY t.trip_id
+    `;
+    res.json(trips);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`API server running on http://localhost:${PORT}`);
   console.log(`Android emulator can access at http://10.0.2.2:${PORT}`);
