@@ -1,7 +1,19 @@
 import { useState, useRef } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView, StatusBar, Animated } from 'react-native';
+import { 
+  StyleSheet, 
+  View, 
+  Text, 
+  TouchableOpacity, 
+  TextInput, 
+  ScrollView, 
+  StatusBar, 
+  Animated,
+  NativeModules 
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import StopSelection from './StopSelection'
+import StopSelection from './StopSelection';
+
+const { AlarmModule } = NativeModules;
 
 export default function Add({ onBack, onSave }) {
   const [currentView, setCurrentView] = useState('form');
@@ -12,6 +24,7 @@ export default function Add({ onBack, onSave }) {
   const notifyExpandAnim = useRef(new Animated.Value(0)).current;
   const [isRepeatExpanded, setIsRepeatExpanded] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
+  const expandAnim = useRef(new Animated.Value(0)).current;
 
   const resetForm = () => {
     setLabel('');
@@ -21,36 +34,57 @@ export default function Add({ onBack, onSave }) {
     expandAnim.setValue(0);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!selectedStop) return alert("Please select a stop");
+
     const dayChars = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     const formattedDays = dayChars.map((char, i) =>
       selectedDays.includes(i) ? char : '-'
     ).join('');
 
     const thresholdMs = selectedThreshold * 60 * 1000;
+    
+    // FIX 1: Removed Date.now() ID generation to prevent Integer Overflow.
+    // We send the data without an ID, and wait for the DB to assign one.
 
     const alarmData = {
-      id: Date.now(),
       label: label,
       time: selectedStop.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
       days: formattedDays,
       threshold: thresholdMs,
       stopID: selectedStop.id,
       stopName: selectedStop.stopName,
-      busRoute: selectedStop.route
+      busRoute: selectedStop.route,
+      isEnabled: 1 
     };
 
-    onSave(alarmData);
-    resetForm();
+    try {
+
+      const newAlarmId = await onSave(alarmData);
+
+      if (!newAlarmId) {
+          throw new Error("Database failed to return an ID");
+      }
+
+
+      const dateObj = selectedStop.time;
+      const hour = dateObj.getHours();
+      const minute = dateObj.getMinutes();
+
+      AlarmModule.scheduleAlarm(newAlarmId, hour, minute);
+      
+      console.log(`Alarm ${newAlarmId} scheduled for ${hour}:${minute}`);
+
+      resetForm();
+    } catch (error) {
+      console.error("Failed to save alarm:", error);
+    }
   };
 
   const notifyHeight = notifyExpandAnim.interpolate({
     inputRange: [0, 1],
     outputRange: [0, 150],
   });
-
-  const expandAnim = useRef(new Animated.Value(0)).current;
 
   const containerHeight = expandAnim.interpolate({
     inputRange: [0, 1],
@@ -364,9 +398,7 @@ const styles = StyleSheet.create({
   minText: {
     color: '#84A98C',
     fontWeight: '600',
-  },
-  minTextSelected: {
-    color: '#FFF',
+    fontSize: 16,
   },
   verticalOption: {
     flexDirection: 'row',
@@ -381,9 +413,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
-  },
-  minText: {
-    color: '#A0A0A0',
-    fontSize: 16,
   },
 });
