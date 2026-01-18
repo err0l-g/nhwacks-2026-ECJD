@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "BusBell",
-    "slug": "BusBell",
+    "name": "NexETA",
+    "slug": "NexETA",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFFEFA"
     },
     "ios": {
       "supportsTablet": true
@@ -18,7 +18,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FFFEFA"
+      },
+      "splash": {
+        "image": "./assets/splash-icon.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#FFFEFA"
       },
       "edgeToEdgeEnabled": true
     },
