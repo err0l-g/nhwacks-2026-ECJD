@@ -21,15 +21,6 @@ export default function Add({
   const [selectedDays, setSelectedDays] = useState([]);
   const expandAnim = useRef(new Animated.Value(0)).current;
 
-  const getDisplayTime = () => {
-    if (!selectedStop) return 'Select Stop';
-    const time = selectedStop.time;
-
-    return typeof time === 'object' && time instanceof Date
-      ? time.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
-      : time;
-  };
-
   const resetForm = () => {
     setLabel('');
     setSelectedStop(null);
@@ -129,7 +120,6 @@ export default function Add({
       const minutes = Math.round(initialData.threshold / 60000);
       setSelectedThreshold(minutes);
 
-      const dayChars = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
       const indices = initialData.days.split('')
         .map((char, i) => (char !== '-' ? i : null))
         .filter((val) => val !== null);
@@ -138,8 +128,7 @@ export default function Add({
       setSelectedStop({
         id: initialData.stopID,
         stopName: initialData.stopName,
-        route: initialData.busRoute,
-        time: initialData.time
+        route: initialData.busRoute
       });
 
       if (indices.length > 0) {
@@ -201,7 +190,7 @@ export default function Add({
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.rowValue}>
                 {selectedStop
-                  ? `${getDisplayTime()} - ${selectedStop.stopName}`
+                  ? `${selectedStop.route} - ${selectedStop.stopName}`
                   : 'Select Stop'}
               </Text>
               <Ionicons name="chevron-forward" size={16} color="#84A98C" />
