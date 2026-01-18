@@ -37,6 +37,7 @@ ios/*.xcodeproj/xcuserdata/
 *.keystore
 *.mobileprovision
 .env*.local
+.env
 
 # Debug & Logs 
 npm-debug.*
