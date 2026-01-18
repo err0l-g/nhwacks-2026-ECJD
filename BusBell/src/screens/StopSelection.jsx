@@ -44,8 +44,6 @@ export default function StopSelection({ onBack, onSelect }) {
       route: item.route_short_name,
       route_id: item.route_id,
       busRouteId: selectedStop.route_id, 
-      tripIds: selectedStop.tripIds,
-      busRouteId: selectedStop.route_id, 
       tripIds: selectedStop.tripIds 
     };
     onSelect(result);
