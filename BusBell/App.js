@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, ActivityIndicator, ScrollView } from 'react-nat
 import { getAllTransitData } from './api/live-data-api.js';
 
 export default function App() {
-  const [busPositions, setBusPosition] = useState(null);
   const [tripUpdates, setTripUpdates] = useState(null);
   const [serviceAlerts, setServiceAlerts] = useState(null);
 
@@ -12,8 +11,9 @@ export default function App() {
   useEffect(() => {
     const loadInitialData = async () => {
       try {
-        const { positions, updates, alerts } = await getAllTransitData();
-        setBusPosition(positions)
+        const { updates, alerts } = await getAllTransitData();
+        console.log("tripupdates: ",JSON.stringify(updates.slice(0, 3), null,2));
+        console.log("service alerts: ", JSON.stringify(alerts.slice(0, 3), null,2));
         setTripUpdates(updates)
         setServiceAlerts(alerts)
       } catch (err) {
@@ -40,14 +40,11 @@ export default function App() {
       <Text style={styles.title}>Live GTFS JSON Feed</Text>
 
       <ScrollView style={styles.jsonScroll}>
-        <Text style={styles.positionText}>
-          {busPositions ? JSON.stringify(busPositions.slice(0, 3), null, 2) : "Bus Data not available"}
+        <Text style={styles.tripText}>
+          {tripUpdates ? JSON.stringify(tripUpdates.slice(0, 3), null, 2) : "Trip Update not available"}
         </Text>
         <Text style={styles.alertText}>
           {serviceAlerts ? JSON.stringify(serviceAlerts.slice(0, 3), null, 2) : "Service Alert not available"}
-        </Text>
-        <Text style={styles.serviceText}>
-          {tripUpdates ? JSON.stringify(tripUpdates.slice(0, 3), null, 2) : "Trip Update not available"}
         </Text>
       </ScrollView>
     </View>
@@ -83,12 +80,12 @@ const styles = StyleSheet.create({
     fontFamily: 'monospace',
     fontSize: 12,
   },
-  serviceText: {
+  alertText: {
     color: '#00c3ff',
     fontFamily: 'monospace',
     fontSize: 12,
   },
-  alertText: {
+  tripText: {
     color: '#c3ff00',
     fontFamily: 'monospace',
     fontSize: 12,
