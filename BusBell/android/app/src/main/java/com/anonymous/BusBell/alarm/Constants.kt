@@ -8,4 +8,6 @@ object Constants {
     // Notification IDs
     const val NOTIF_ID_FOREGROUND = 1
     const val NOTIF_ID_ALERT = 2
+
+    const val ACTION_ALARM_TRIGGER = "ACTION_ALARM_TRIGGER"
 }
