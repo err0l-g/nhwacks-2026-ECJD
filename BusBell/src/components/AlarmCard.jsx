@@ -4,11 +4,12 @@ import {
     Text,
     StyleSheet,
     Switch,
-    Animated
+    Animated,
+    TouchableOpacity
 } from 'react-native';
 import DayCircles from './DayCircles';
 
-const AlarmCard = ({ item, onToggleAlarm }) => {
+const AlarmCard = ({ item, onToggleAlarm, onPressCard }) => {
     const animatedValue = useRef(new Animated.Value(item.isEnabled ? 1 : 0)).current;
 
     useEffect(() => {
@@ -36,35 +37,40 @@ const AlarmCard = ({ item, onToggleAlarm }) => {
     const displayHour = hourInt % 12 || 12;
 
     const thresholdMinutes = Math.round(item.threshold / 60000);
-    
+
     return (
-        <Animated.View style={[styles.card, { backgroundColor, opacity }]}>
-            <View style={styles.cardHeader}>
-                <View style={styles.timeContainer}>
-                    <Text style={styles.timeText}>{displayHour}:{displayMinute}</Text>
-                    <Text style={styles.ampmText}>{ampm}</Text>
-                </View>
-                <Switch
-                    trackColor={{ false: "#b1b7ac", true: "#84A98C" }}
-                    thumbColor={"#FFF"}
-                    onValueChange={() => onToggleAlarm(item.id)}
-                    value={item.isEnabled}
-                />
-            </View>
-
-            <View style={styles.cardBody}>
-                <Text style={styles.routeText}>{item.busRoute} - {item.stopName}</Text>
-
-                <View style={styles.thresholdContainer}>
-                    <Text style={styles.infoText}>🔔 {thresholdMinutes} minutes before</Text>
+        <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => onPressCard(item)}
+        >
+            <Animated.View style={[styles.card, { backgroundColor, opacity }]}>
+                <View style={styles.cardHeader}>
+                    <View style={styles.timeContainer}>
+                        <Text style={styles.timeText}>{displayHour}:{displayMinute}</Text>
+                        <Text style={styles.ampmText}>{ampm}</Text>
+                    </View>
+                    <Switch
+                        trackColor={{ false: "#b1b7ac", true: "#84A98C" }}
+                        thumbColor={"#FFF"}
+                        onValueChange={() => onToggleAlarm(item.id)}
+                        value={item.isEnabled}
+                    />
                 </View>
 
-                <View style={styles.cardFooter}>
-                    <Text style={styles.label}>{item.label || "Alarm"}</Text>
-                    <DayCircles daysString={item.days} />
+                <View style={styles.cardBody}>
+                    <Text style={styles.routeText}>{item.busRoute} - {item.stopName}</Text>
+
+                    <View style={styles.thresholdContainer}>
+                        <Text style={styles.infoText}>🔔 {thresholdMinutes} minutes before</Text>
+                    </View>
+
+                    <View style={styles.cardFooter}>
+                        <Text style={styles.label}>{item.label || "Alarm"}</Text>
+                        <DayCircles daysString={item.days} />
+                    </View>
                 </View>
-            </View>
-        </Animated.View>
+            </Animated.View>
+        </TouchableOpacity>
     );
 };
 
