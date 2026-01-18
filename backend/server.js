@@ -115,12 +115,6 @@ app.get('/api/stops', async (req, res) => {
 app.get('/api/stops/advanced-search', async (req, res) => {
   try {
     const { q } = req.query;
-    
-    // If no query provided, return empty array
-    if (!q || q.trim() === '') {
-      return res.json([]);
-    }
-
     // Search by stop name, stop_id, or stop_code only (not routes)
     const stops = await sql`
       SELECT * FROM stops
