@@ -7,8 +7,14 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.API_PORT || 10000;
 
-// Enable CORS for React Native
-app.use(cors());
+// Enable CORS for React Native and Expo
+// Allow all origins for development (restrict this in production if needed)
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // PostgreSQL connection using environment variables
@@ -113,8 +119,10 @@ app.get('/api/stops', async (req, res) => {
 
 // Advanced search: filter stops by stop_name, stop_id, or stop_code only
 app.get('/api/stops/advanced-search', async (req, res) => {
+  console.log("searching")
   try {
     const { q } = req.query;
+
     // Search by stop name, stop_id, or stop_code only (not routes)
     const stops = await sql`
       SELECT * FROM stops
