@@ -1,48 +1,76 @@
-import { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView, StatusBar } from 'react-native';
+import { useState, useRef } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView, StatusBar, Animated,} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Add({ onBack }) {
   const [isRepeatExpanded, setIsRepeatExpanded] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
 
+  const expandAnim = useRef(new Animated.Value(0)).current;
+
+  const containerHeight = expandAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 60],
+  });
+
   const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+  const toggleRepeat = () => {
+    const toValue = isRepeatExpanded ? 0 : 1;
+
+    Animated.timing(expandAnim, {
+      toValue,
+      duration: 300,
+      useNativeDriver: false,
+    }).start();
+
+    setIsRepeatExpanded(!isRepeatExpanded);
+  };
 
   const toggleDay = (index) => {
     if (selectedDays.includes(index)) {
-      setSelectedDays(selectedDays.filter(i => i !== index));
+      setSelectedDays(selectedDays.filter((i) => i !== index));
     } else {
       setSelectedDays([...selectedDays, index]);
     }
   };
 
   const getRepeatLabel = () => {
-  if (selectedDays.length === 0) return 'Never';
-  if (selectedDays.length === 7) return 'Everyday';
-  
-  const isWeekday = selectedDays.length === 5 && 
-                    [1, 2, 3, 4, 5].every(d => selectedDays.includes(d));
-  if (isWeekday) return 'Every Weekday';
+    if (selectedDays.length === 0) return 'Never ';
+    if (selectedDays.length === 7) return 'Everyday ';
 
-  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  return selectedDays
-    .sort((a, b) => a - b)
-    .map(index => dayNames[index])
-    .join(', ') + ' ';
-};
+    const isWeekday =
+      selectedDays.length === 5 &&
+      [1, 2, 3, 4, 5].every((d) => selectedDays.includes(d));
+
+    if (isWeekday) return 'Every Weekday';
+
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    return (
+      selectedDays
+        .sort((a, b) => a - b)
+        .map((index) => dayNames[index])
+        .join(', ') + ' '
+    );
+  };
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      
+
+      {/* NAV BAR */}
       <View style={styles.navBar}>
         <TouchableOpacity onPress={onBack} style={styles.iconCircle}>
           <Ionicons name="close" size={22} color="#52796F" />
         </TouchableOpacity>
-        
+
         <Text style={styles.navTitle}>New Alarm</Text>
-        
-        <TouchableOpacity onPress={onBack} style={[styles.iconCircle, { backgroundColor: '#84A98C' }]}>
+
+        <TouchableOpacity
+          onPress={onBack}
+          style={[styles.iconCircle, { backgroundColor: '#84A98C' }]}
+        >
           <Ionicons name="checkmark" size={22} color="#FFF" />
         </TouchableOpacity>
       </View>
@@ -51,13 +79,14 @@ export default function Add({ onBack }) {
         <View style={styles.menuGroup}>
           <View style={styles.row}>
             <Text style={styles.rowLabel}>Label</Text>
-            <TextInput 
-              style={styles.rowInput} 
-              placeholder="Morning Commute" 
-              placeholderTextColor="#A3ADAE"
+            <TextInput
+              style={styles.rowInput}
+              placeholder="Morning Commute"
               textAlign="right"
             />
           </View>
+
+          <View style={styles.divider} />
 
           <TouchableOpacity style={styles.row}>
             <Text style={styles.rowLabel}>Bus Stop</Text>
@@ -67,46 +96,60 @@ export default function Add({ onBack }) {
             </View>
           </TouchableOpacity>
 
+          <View style={styles.divider} />
           <TouchableOpacity style={styles.row}>
             <Text style={styles.rowLabel}>Notify Me</Text>
-            <Text style={[styles.rowValue, { color: '#52796F' }]}>5 mins</Text>
+            <Text style={[styles.rowValue, { color: '#52796F' }]}>
+              5 mins
+            </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity 
-            style={[styles.row, { borderBottomWidth: isRepeatExpanded ? 0 : 1 }]} 
-            onPress={() => setIsRepeatExpanded(!isRepeatExpanded)}
+          <View style={styles.divider} />
+
+          <TouchableOpacity
+            style={[styles.row, { borderBottomWidth: 0 }]}
+            onPress={toggleRepeat}
           >
             <Text style={styles.rowLabel}>Repeat</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Text style={styles.rowValue}>
-                {getRepeatLabel()}
-              </Text>
-              <Ionicons 
-                name={isRepeatExpanded ? "chevron-down" : "chevron-forward"} 
-                size={16} 
-                color="#84A98C" 
+              <Text style={styles.rowValue}>{getRepeatLabel()}</Text>
+              <Ionicons
+                name={isRepeatExpanded ? 'chevron-down' : 'chevron-forward'}
+                size={16}
+                color="#84A98C"
               />
             </View>
           </TouchableOpacity>
 
-          {isRepeatExpanded && (
+          <Animated.View
+            style={{ height: containerHeight, overflow: 'hidden' }}
+          >
             <View style={styles.daysContainer}>
               {days.map((day, index) => {
                 const isSelected = selectedDays.includes(index);
+
                 return (
                   <TouchableOpacity
                     key={index}
-                    style={[styles.dayCircle, isSelected && styles.dayCircleSelected]}
+                    style={[
+                      styles.dayCircle,
+                      isSelected && styles.dayCircleSelected,
+                    ]}
                     onPress={() => toggleDay(index)}
                   >
-                    <Text style={[styles.dayText, isSelected && styles.dayTextSelected]}>
+                    <Text
+                      style={[
+                        styles.dayText,
+                        isSelected && styles.dayTextSelected,
+                      ]}
+                    >
                       {day}
                     </Text>
                   </TouchableOpacity>
                 );
               })}
             </View>
-          )}
+          </Animated.View>
         </View>
       </ScrollView>
     </View>
@@ -114,7 +157,10 @@ export default function Add({ onBack }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F1F3F2' },
+  container: {
+    flex: 1,
+    backgroundColor: '#F1F3F2',
+  },
   navBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -123,11 +169,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 20,
   },
-  navTitle: { fontSize: 18, fontWeight: '700', color: '#2F3E46' },
+  navTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#2F3E46',
+  },
   iconCircle: {
     width: 44,
     height: 44,
-    borderRadius: 22, 
+    borderRadius: 22,
     backgroundColor: '#FFF',
     justifyContent: 'center',
     alignItems: 'center',
@@ -136,16 +186,14 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
-  scrollContent: { paddingHorizontal: 20 },
+  scrollContent: {
+    paddingHorizontal: 20,
+  },
   menuGroup: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 28, 
+    borderRadius: 28,
     marginTop: 10,
     elevation: 6,
-  },
-  innerContainer: {
-    borderRadius: 28,
-    overflow: 'hidden',
   },
   row: {
     flexDirection: 'row',
@@ -153,19 +201,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 20,
     paddingHorizontal: 18,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F1F3F2',
   },
-  rowLabel: { fontSize: 16, color: '#2F3E46', fontWeight: '500'},
-  rowValue: { fontSize: 16, color: '#84A98C', fontWeight: '600'},
+  divider: {
+    height: 1,
+    backgroundColor: '#E0E4E2',
+    marginHorizontal: 12,
+  },
+  rowLabel: {
+    fontSize: 16,
+    color: '#2F3E46',
+    fontWeight: '500',
+  },
+  rowValue: {
+    fontSize: 16,
+    color: '#84A98C',
+    fontWeight: '600',
+  },
   rowInput: {
     fontSize: 16,
     color: '#2F3E46',
     flex: 1,
     marginLeft: 20,
-    paddingVertical: 0, 
-    includeFontPadding: false, // Ensures no extra space on Android
-    textAlignVertical: 'center', // Centers text vertically within its container
+    paddingVertical: 0,
+    includeFontPadding: false,
+    textAlignVertical: 'center',
   },
   daysContainer: {
     flexDirection: 'row',
