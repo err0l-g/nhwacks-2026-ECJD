@@ -100,55 +100,6 @@ export default function App() {
     }).start();
   }, [currentScreen]);
 
-  useEffect(() => {
-    const loadInitialData = async () => {
-      try {
-        const availableTrips = await getTripsByRouteAndStop(TEST_STOP_ID, TEST_ROUTE_ID)
-        setTripIds(availableTrips.map(t => t.tripId));
-        
-        const liveStatus = await getLiveStatus(TEST_STOP_ID, TEST_TRIP_ID);
-        setEta(liveStatus.eta);
-        setActiveAlerts(liveStatus.alerts);
-
-        const transData = await getAllTransitData();
-        setTransData(transData);
-      } catch (err) {
-        console.error("Failed to load buses:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadInitialData();
-  }, []);
-
-  if (loading) {
-    return (
-      <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#00ff00" />
-        <Text style={{ color: '#fff' }}>Fetching Live JSON...</Text>
-      </View>
-    );
-  }
-
-  // return (
-  //   <View style={styles.container}>
-  //     <Text style={styles.title}>Live GTFS JSON Feed</Text>
-
-  //     <ScrollView style={styles.jsonScroll}>
-  //       <Text style={styles.positionText}>
-  //         {busPositions ? JSON.stringify(busPositions.slice(0, 3), null, 2) : "Bus Data not available"}
-  //       </Text>
-  //       <Text style={styles.alertText}>
-  //         {serviceAlerts ? JSON.stringify(serviceAlerts.slice(0, 3), null, 2) : "Service Alert not available"}
-  //       </Text>
-  //       <Text style={styles.serviceText}>
-  //         {tripUpdates ? JSON.stringify(tripUpdates.slice(0, 3), null, 2) : "Trip Update not available"}
-  //       </Text>
-  //     </ScrollView>
-  //   </View>
-  // );
-
   return (
     <View style={{ flex: 1, backgroundColor: '#000' }}>
       <View style={{ flex: 1, opacity: currentScreen === 'Add' ? 0.5 : 1 }}>
