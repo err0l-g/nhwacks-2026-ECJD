@@ -95,7 +95,7 @@ export default function App() {
   useEffect(() => {
     Animated.timing(slideAnim, {
       toValue: currentScreen === 'Add' ? 100 : SCREEN_HEIGHT,
-      duration: 400,
+      duration: 300,
       useNativeDriver: true,
     }).start();
   }, [currentScreen]);

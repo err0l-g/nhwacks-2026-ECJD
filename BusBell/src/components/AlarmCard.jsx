@@ -15,7 +15,7 @@ const AlarmCard = ({ item, onToggleAlarm, onPressCard }) => {
     useEffect(() => {
         Animated.timing(animatedValue, {
             toValue: item.isEnabled ? 1 : 0,
-            duration: 300,
+            duration: 500,
             useNativeDriver: false,
         }).start();
     }, [item.isEnabled]);
@@ -40,10 +40,11 @@ const AlarmCard = ({ item, onToggleAlarm, onPressCard }) => {
 
     return (
         <TouchableOpacity
-            activeOpacity={0.8}
+            activeOpacity={0.7}
             onPress={() => onPressCard(item)}
+            style={{ marginBottom: 16, borderRadius: 20, overflow: 'hidden'}}
         >
-            <Animated.View style={[styles.card, { backgroundColor, opacity }]}>
+            <Animated.View style={[{ backgroundColor, opacity, padding: 20}]}>
                 <View style={styles.cardHeader}>
                     <View style={styles.timeContainer}>
                         <Text style={styles.timeText}>{displayHour}:{displayMinute}</Text>
@@ -75,16 +76,6 @@ const AlarmCard = ({ item, onToggleAlarm, onPressCard }) => {
 };
 
 const styles = StyleSheet.create({
-    card: {
-        borderRadius: 20,
-        padding: 20,
-        marginBottom: 16,
-        shadowColor: "#2F3E46",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 3,
-    },
     cardHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -111,7 +102,7 @@ const styles = StyleSheet.create({
     },
     routeText: {
         fontSize: 16,
-        fontWeight: '600',
+        fontWeight: '500',
         color: '#354F52',
     },
     thresholdContainer: {
@@ -122,7 +113,7 @@ const styles = StyleSheet.create({
     infoText: {
         fontSize: 14,
         color: '#FFF',
-        fontWeight: '500',
+        fontWeight: '400',
     },
     daysText: {
         fontSize: 14,

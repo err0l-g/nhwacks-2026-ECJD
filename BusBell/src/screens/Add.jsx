@@ -170,7 +170,7 @@ export default function Add({
       <StatusBar barStyle="dark-content" />
 
       <View style={styles.navBar}>
-        <TouchableOpacity onPress={() => { resetForm(); onBack(); }} style={styles.iconCircle}>
+        <TouchableOpacity onPress={() => {  onBack(); }} style={styles.iconCircle}>
           <Ionicons name="close" size={22} color="#52796F" />
         </TouchableOpacity>
         <Text style={styles.navTitle}>{initialData ? 'Edit Alarm' : 'New Alarm'}</Text>
@@ -181,7 +181,7 @@ export default function Add({
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.menuGroup}>
-          <View style={styles.row}>
+          <View style={[styles.row, { paddingVertical: 10 }]}>
             <Text style={styles.rowLabel}>Label</Text>
             <TextInput
               style={styles.rowInput}
@@ -195,7 +195,7 @@ export default function Add({
           <View style={styles.divider} />
 
           <TouchableOpacity style={styles.row} onPress={() => setCurrentView('stops')}>
-            <Text style={styles.rowLabel}>Bus Stop</Text>
+            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Bus Stop</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.rowValue}>
                 {selectedStop
@@ -208,7 +208,7 @@ export default function Add({
 
           <View style={styles.divider} />
           <TouchableOpacity style={styles.row} onPress={toggleNotify}>
-            <Text style={styles.rowLabel}>Notify Me</Text>
+            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Notify Me</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.rowValue}>{selectedThreshold} minutes</Text>
               <Ionicons name={isNotifyExpanded ? 'chevron-down' : 'chevron-forward'} size={16} color="#84A98C" />
@@ -234,7 +234,7 @@ export default function Add({
           <View style={styles.divider} />
 
           <TouchableOpacity style={[styles.row, { borderBottomWidth: 0 }]} onPress={toggleRepeat}>
-            <Text style={styles.rowLabel}>Repeat</Text>
+            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Repeat</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.rowValue}>{getRepeatLabel()}</Text>
               <Ionicons name={isRepeatExpanded ? 'chevron-down' : 'chevron-forward'} size={16} color="#84A98C" />
@@ -270,24 +270,118 @@ export default function Add({
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F1F3F2' },
-  navBar: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingTop: 40, paddingHorizontal: 20, paddingBottom: 20 },
-  navTitle: { fontSize: 18, fontWeight: '700', color: '#2F3E46' },
-  iconCircle: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#FFF', justifyContent: 'center', alignItems: 'center', elevation: 2 },
-  scrollContent: { paddingHorizontal: 20 },
-  menuGroup: { backgroundColor: '#FFFFFF', borderRadius: 28, marginTop: 10, elevation: 6 },
-  row: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 20, paddingHorizontal: 18 },
-  divider: { height: 1, backgroundColor: '#E0E4E2', marginHorizontal: 12 },
-  rowLabel: { fontSize: 16, color: '#2F3E46', fontWeight: '500' },
-  rowValue: { fontSize: 16, color: '#84A98C', fontWeight: '600' },
-  rowInput: { fontSize: 16, color: '#2F3E46', flex: 1, marginLeft: 20, textAlign: 'right' },
-  daysContainer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, paddingBottom: 20 },
-  dayCircle: { width: 35, height: 35, borderRadius: 18, borderWidth: 1, borderColor: '#84A98C', justifyContent: 'center', alignItems: 'center' },
-  dayCircleSelected: { backgroundColor: '#84A98C' },
-  dayText: { color: '#84A98C', fontWeight: '600', fontSize: 12 },
-  dayTextSelected: { color: '#FFF' },
-  verticalOptionSimple: { alignItems: 'center', justifyContent: 'center', paddingVertical: 12 },
-  minText: { color: '#A0A0A0', fontSize: 16 },
-  deleteButton: { backgroundColor: '#FFF', marginTop: 30, paddingVertical: 18, borderRadius: 20, alignItems: 'center', borderWidth: 1, borderColor: '#FF6B6B', marginBottom: 40 },
-  deleteText: { color: '#FF6B6B', fontSize: 16, fontWeight: '700' },
+  container: { 
+    flex: 1, 
+    backgroundColor: '#F1F3F2' 
+  },
+  navBar: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    paddingTop: 40, 
+    paddingHorizontal: 20, 
+    paddingBottom: 20 
+  },
+  navTitle: { 
+    fontSize: 18, 
+    fontWeight: '700', 
+    color: '#2F3E46' 
+  },
+  iconCircle: { 
+    width: 44, 
+    height: 44, 
+    borderRadius: 22, 
+    backgroundColor: '#FFF', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    elevation: 2 
+  },
+  scrollContent: { 
+    paddingHorizontal: 20 
+  },
+  menuGroup: { 
+    backgroundColor: '#FFFFFF', 
+    borderRadius: 28, 
+    marginTop: 10, 
+    elevation: 6 
+  },
+  row: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    paddingHorizontal: 18 
+  },
+  divider: { 
+    height: 1, 
+    backgroundColor: '#E0E4E2', 
+    marginHorizontal: 12 
+  },
+  rowLabel: { 
+    fontSize: 16, 
+    color: '#2F3E46', 
+    fontWeight: '500' 
+  },
+  rowValue: { 
+    fontSize: 16, 
+    color: '#84A98C', 
+    fontWeight: '600' 
+  },
+  rowInput: { 
+    fontSize: 16, 
+    color: '#2F3E46', 
+    flex: 1, 
+    marginLeft: 20, 
+    textAlign: 'right'
+  },
+  daysContainer: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    paddingHorizontal: 20, 
+    paddingBottom: 20 
+  },
+  dayCircle: { 
+    width: 35, 
+    height: 35, 
+    borderRadius: 18, 
+    borderWidth: 1, 
+    borderColor: '#84A98C', 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
+  dayCircleSelected: { 
+    backgroundColor: '#84A98C' 
+  },
+  dayText: { 
+    color: '#84A98C', 
+    fontWeight: '600', 
+    fontSize: 12 
+  },
+  dayTextSelected: { 
+    color: '#FFF' 
+  },
+  verticalOptionSimple: { 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    paddingVertical: 12 
+  },
+  minText: { 
+    color: '#A0A0A0', 
+    fontSize: 16 
+  },
+  deleteButton: { 
+    backgroundColor: '#FFF', 
+    marginTop: 30, 
+    paddingVertical: 18, 
+    borderRadius: 24, 
+    alignItems: 'center', 
+    borderWidth: 1, 
+    borderColor: '#FF6B6B', 
+    marginBottom: 40,
+    elevation: 4
+  },
+  deleteText: { 
+    color: '#FF6B6B', 
+    fontSize: 16, 
+    fontWeight: '700' 
+  }
 });
