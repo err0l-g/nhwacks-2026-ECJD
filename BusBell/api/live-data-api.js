@@ -7,7 +7,6 @@ const API_KEY = process.env.EXPO_PUBLIC_TRANSLINK_API_KEY;
 const BASE_URL = "https://gtfsapi.translink.ca/v3";
 
 export const TRANSIT_ENDPOINTS = {
-  POSITION: 'gtfsposition',
   TRIP_UPDATES: 'gtfsrealtime',
   ALERTS: 'gtfsalerts'
 };
@@ -32,7 +31,6 @@ const fetchTransitFeed = async (endpoint) => {
 
 export const getAllTransitData = async () => {
   const [positions, updates, alerts] = await Promise.all([
-    fetchTransitFeed(TRANSIT_ENDPOINTS.POSITION),
     fetchTransitFeed(TRANSIT_ENDPOINTS.TRIP_UPDATES),
     fetchTransitFeed(TRANSIT_ENDPOINTS.ALERTS)
   ]);
