@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList, StatusBar, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { advancedSearchStops, getRoutesByStopCode } from '../db/gtfs_static_db_helper';
 
 const ALL_STOPS = [
   { id: '51234', stopName: 'E 33 Ave @ Fraser St' },
@@ -12,26 +13,55 @@ export default function StopSelection({ onBack, onSelect }) {
   const [selectedStop, setSelectedStop] = useState(null);
   const [routes, setRoutes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedTimeIndex, setSelectedTimeIndex] = useState(null);
+  const [filteredStops, setFilteredStops] = useState([])
 
   useEffect(() => {
     if (selectedStop) {
       setLoading(true);
-      const timer = setTimeout(() => {
-        setRoutes([
-          { routeNo: '33', destination: 'UBC' },
-          { routeNo: '8', destination: 'Fraser' }
-        ]);
-        setLoading(false);
-      }, 500);
+      setSelectedTimeIndex(null);
+      const timer = setTimeout(async () => {
+        const routesStoppingHere = await getRoutesByStopCode(selectedStop.stop_code)
+        console.log(routesStoppingHere)
+        setSchedules(routesStoppingHere); 
+        setLoading(false); 
+      }, 800);
       return () => clearTimeout(timer);
     }
-  }, [selectedStop]);
 
-  const handleRouteSelection = (route) => {
+    const search_stops = async () => {
+      console.log(searchQuery)
+      const stops = await advancedSearchStops(searchQuery)
+      if(stops.length >= 0)
+      {
+        setFilteredStops(stops) 
+      }
+    }
+    search_stops()
+  }, [selectedStop, searchQuery]);
+
+  const handleTimeSelection = (index) => {
+    setSelectedTimeIndex(index);
+    console.log(schedules[index])
+    const timeString = schedules[index].route_short_name;
+    
+    const date = new Date();
+    
+    const [time, modifier] = timeString.split(' ');
+    let [hours, minutes] = time.split(':');
+
+    if (hours === '12') hours = '00';
+    if (modifier === 'PM') hours = parseInt(hours, 10) + 12;
+
+    date.setHours(parseInt(hours, 10));
+    date.setMinutes(parseInt(minutes, 10));
+    date.setSeconds(0);
+    date.setMilliseconds(0);
+
     const result = {
-      id: selectedStop.id,
-      stopName: selectedStop.stopName,
-      route: `${route.routeNo} ${route.destination}`
+      id: selectedStop.stop_id,
+      stopName: selectedStop.stop_name,
+      time: date
     };
     onSelect(result);
   };
@@ -44,12 +74,12 @@ export default function StopSelection({ onBack, onSelect }) {
             <Ionicons name="chevron-back" size={24} color="#2F3E46" />
           </TouchableOpacity>
           <Text style={[styles.rowLabel, { flex: 1 }]} numberOfLines={1}>
-            {selectedStop.stopName}
+            {selectedStop.stop_name}
           </Text>
         </View>
 
         <View style={styles.listContent}>
-          <Text style={styles.sectionTitle}>Select Route for #{selectedStop.id}:</Text>
+          <Text style={styles.sectionTitle}>Select Route for #{selectedStop.stop_id}:</Text>
           {loading ? (
             <ActivityIndicator color="#84A98C" style={{ marginTop: 20 }} />
           ) : (
@@ -72,12 +102,6 @@ export default function StopSelection({ onBack, onSelect }) {
     );
   }
 
-  // View 1: Search and Select Stop
-  const filteredStops = ALL_STOPS.filter(stop =>
-    stop.stopName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    stop.id.includes(searchQuery)
-  );
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -98,7 +122,7 @@ export default function StopSelection({ onBack, onSelect }) {
 
       <FlatList
         data={filteredStops}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.stop_id}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.row} onPress={() => setSelectedStop(item)}>
             <View>
