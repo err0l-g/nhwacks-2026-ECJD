@@ -3,16 +3,22 @@ import { Platform } from 'react-native';
 
 // API base URL
 const getApiUrl = () => {
-  if (Platform.OS === 'android') {
-    // Android emulator uses special IP to access host machine
-    return 'http://10.0.2.2:3000/api';
-  } else if (Platform.OS === 'ios') {
-    // iOS simulator can use localhost
-    return 'http://localhost:3000/api';
+  // For production, use your Render URL
+  const PRODUCTION_URL = 'https://nhwacks-2026-ecjd.onrender.com/api';
+
+  return PRODUCTION_URL
+  
+  // For local development
+  if (__DEV__) {
+    if (Platform.OS === 'android') {
+      return 'http://10.0.2.2:3000/api';
+    } else if (Platform.OS === 'ios') {
+      return 'http://localhost:3000/api';
+    }
   }
-  // For physical devices, use your computer's local IP
-  // Example: return 'http://192.168.1.100:3000/api';
-  return 'http://localhost:3000/api';
+  
+  // Production
+  return PRODUCTION_URL;
 };
 
 const API_URL = getApiUrl();
