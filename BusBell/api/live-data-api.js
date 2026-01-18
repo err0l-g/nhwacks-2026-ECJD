@@ -30,7 +30,7 @@ const fetchTransitFeed = async (endpoint) => {
 };
 
 export const getAllTransitData = async () => {
-  const [ updates, alerts] = await Promise.all([
+  const [positions, updates, alerts] = await Promise.all([
     fetchTransitFeed(TRANSIT_ENDPOINTS.TRIP_UPDATES),
     fetchTransitFeed(TRANSIT_ENDPOINTS.ALERTS)
   ]);
