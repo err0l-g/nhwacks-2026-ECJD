@@ -13,20 +13,13 @@ export default function Add({
   const [label, setLabel] = useState('');
   const [selectedStop, setSelectedStop] = useState(null);
   const [selectedThreshold, setSelectedThreshold] = useState(5);
+  const [selectedHour, setSelectedHour] = useState(8);
+  const [selectedMinute, setSelectedMinute] = useState(30);
   const [isNotifyExpanded, setIsNotifyExpanded] = useState(false);
   const notifyExpandAnim = useRef(new Animated.Value(0)).current;
   const [isRepeatExpanded, setIsRepeatExpanded] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
   const expandAnim = useRef(new Animated.Value(0)).current;
-
-  const getDisplayTime = () => {
-    if (!selectedStop) return 'Select Stop';
-    const time = selectedStop.time;
-
-    return typeof time === 'object' && time instanceof Date
-      ? time.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
-      : time;
-  };
 
   const resetForm = () => {
     setLabel('');
@@ -64,14 +57,14 @@ export default function Add({
     const alarmData = {
       id: initialData ? initialData.id : Date.now(),
       label: label || "Alarm",
-      time: typeof selectedStop.time === 'object' && selectedStop.time instanceof Date
-        ? selectedStop.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
-        : selectedStop.time,
+      time: initialData ? initialData.time : `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')}`,
       days: formattedDays,
       threshold: thresholdMs,
       stopID: selectedStop.id,
       stopName: selectedStop.stopName,
       busRoute: selectedStop.route,
+      busRouteId: selectedStop.busRouteId, 
+      tripIds: selectedStop.tripIds,
       isEnabled: initialData ? initialData.isEnabled : true
     };
 
@@ -124,10 +117,14 @@ export default function Add({
     if (initialData) {
       setLabel(String(initialData.label));
 
+      const [rawHour, displayMinute] = initialData.time ? initialData.time.split(":") : ["12", "00"]; // for noww
+
+      setSelectedHour(String(rawHour));
+      setSelectedMinute(String(displayMinute));
+
       const minutes = Math.round(initialData.threshold / 60000);
       setSelectedThreshold(minutes);
 
-      const dayChars = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
       const indices = initialData.days.split('')
         .map((char, i) => (char !== '-' ? i : null))
         .filter((val) => val !== null);
@@ -136,8 +133,7 @@ export default function Add({
       setSelectedStop({
         id: initialData.stopID,
         stopName: initialData.stopName,
-        route: initialData.busRoute,
-        time: initialData.time
+        route: initialData.busRoute
       });
 
       if (indices.length > 0) {
@@ -199,7 +195,7 @@ export default function Add({
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.rowValue}>
                 {selectedStop
-                  ? `${getDisplayTime()} - ${selectedStop.stopName}`
+                  ? `${selectedStop.route} - ${selectedStop.stopName}`
                   : 'Select Stop'}
               </Text>
               <Ionicons name="chevron-forward" size={16} color="#84A98C" />
@@ -208,7 +204,47 @@ export default function Add({
 
           <View style={styles.divider} />
           <TouchableOpacity style={styles.row} onPress={toggleNotify}>
-            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Notify Me</Text>
+            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Bus Arrival Approximate Time</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={styles.rowValue}>{String(selectedHour).padStart(2, "0")}:{String(selectedMinute).padStart(2, "0")}</Text>
+              <Ionicons name={isNotifyExpanded ? 'chevron-down' : 'chevron-forward'} size={16} color="#84A98C" />
+            </View>
+          </TouchableOpacity>
+
+          <Animated.View style={{ height: notifyHeight, overflow: 'hidden', flexDirection: 'row' }}>
+            <ScrollView nestedScrollEnabled={true} style={{ backgroundColor: '#F9FAFA' }}>
+              {Array.from({ length: 24 }, (_, i) => i + 1).map((hour) => (
+                <TouchableOpacity
+                  key={hour}
+                  style={styles.verticalOptionSimple}
+                  onPress={() => {
+                     setSelectedHour(hour); toggleNotify(); 
+                    }}
+                >
+                  <Text style={[styles.minText, selectedHour === hour && { color: '#84A98C', fontWeight: '800' }]}>
+                    {hour}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+            <ScrollView nestedScrollEnabled={true} style={{ backgroundColor: '#F9FAFA' }}>
+              {Array.from({ length: 59 }, (_, i) => i + 1).map((min) => (
+                <TouchableOpacity
+                  key={min}
+                  style={styles.verticalOptionSimple}
+                  onPress={() => { setSelectedMinute(min); toggleNotify(); }}
+                >
+                  <Text style={[styles.minText, selectedMinute === min && { color: '#84A98C', fontWeight: '800' }]}>
+                    {min}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </Animated.View>
+          
+          <View style={styles.divider} />
+          <TouchableOpacity style={styles.row} onPress={toggleNotify}>
+            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Notify Me Before</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.rowValue}>{selectedThreshold} minutes</Text>
               <Ionicons name={isNotifyExpanded ? 'chevron-down' : 'chevron-forward'} size={16} color="#84A98C" />
