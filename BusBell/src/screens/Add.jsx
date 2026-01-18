@@ -63,6 +63,8 @@ export default function Add({
       stopID: selectedStop.id,
       stopName: selectedStop.stopName,
       busRoute: selectedStop.route,
+      busRouteId: selectedStop.busRouteId, 
+      tripIds: selectedStop.tripIds,
       isEnabled: initialData ? initialData.isEnabled : true
     };
 
