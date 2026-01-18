@@ -1,160 +1,59 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, ScrollView } from 'react-native';
-import { getLiveStatus, getTripsByRouteAndStop } from './api/api-helper.js';
-import { getAllTransitData } from './api/live-data-api.js';
+import { useState, useEffect, useRef } from 'react';
+import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
+import { Animated, Dimensions } from 'react-native';
+import Home from './src/screens/Home';
+import Add from './src/screens/Add';
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
-  const [transData, setTransData] = useState(null)
+  const [currentScreen, setCurrentScreen] = useState('Home');
 
-  // 2. Mock Test Data
-  const TEST_STOP_ID = "30";
-  const TEST_ROUTE_ID = "6612";
-  const TEST_TRIP_ID = "14827782";
-
-  const [eta, setEta] = useState(null);
-  const [activeAlerts, setActiveAlerts] = useState([]);
-  const [tripIds, setTripIds] = useState([]);
+  const SCREEN_HEIGHT = Dimensions.get('window').height;
+  const slideAnim = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
 
   useEffect(() => {
-    const loadInitialData = async () => {
-      try {
-        const availableTrips = await getTripsByRouteAndStop(TEST_STOP_ID, TEST_ROUTE_ID)
-        setTripIds(availableTrips.map(t => t.tripId));
-        
-        const liveStatus = await getLiveStatus(TEST_STOP_ID, TEST_TRIP_ID);
-        setEta(liveStatus.eta);
-        setActiveAlerts(liveStatus.alerts);
-
-        const transData = await getAllTransitData();
-        setTransData(transData);
-      } catch (err) {
-        console.error("Failed to load buses:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadInitialData();
-  }, []);
-
-  if (loading) {
-    return (
-      <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#00ff00" />
-        <Text style={{ color: '#fff' }}>Fetching Live JSON...</Text>
-      </View>
-    );
-  }
+    Animated.timing(slideAnim, {
+      toValue: currentScreen === 'Add' ? 100 : SCREEN_HEIGHT, 
+      duration: 400, 
+      useNativeDriver: true,
+    }).start();
+  }, [currentScreen]);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>BusBell Helper Test</Text>
-
-      {/* 4. Display Helper Results */}
-      <View style={styles.testCard}>
-        <Text style={styles.cardHeader}>Test Case: Trip {TEST_TRIP_ID} @ Stop {TEST_STOP_ID}</Text>
-
-        <Text style={styles.resultText}>
-          Available Trips: {tripIds.join(', ') || "No Trip Found"}
-        </Text>
-        <Text style={styles.resultText}>
-          Estimated Arrival: {eta || "No Trip Found"}
-        </Text>
-
-        <Text style={styles.resultText}>
-          Active Alerts: {activeAlerts}
-        </Text>
-
-        {activeAlerts.length > 0 && (
-          <Text style={styles.alertDetail}>
-            {activeAlerts}
-          </Text>
-        )}
+    <View style={{ flex: 1, backgroundColor: '#000' }}>
+      <View style={{ flex: 1, opacity: currentScreen === 'Add' ? 0.5 : 1 }}>
+        <Home onAddPress={() => setCurrentScreen('Add')} />
       </View>
-
-      <Text style={styles.subTitle}>Raw Feed (First 2 Items)</Text>
-      <ScrollView style={styles.jsonScroll}>
-        <Text style={styles.tripText}>
-          {transData ? JSON.stringify(transData.updates.slice(0, 2), null, 2) : "Transit Data not available"}
-        </Text>
-        <Text style={styles.tripText}>
-          {eta ? JSON.stringify(eta, null, 2) : "Trip Update not available"}
-        </Text>
-        <Text style={styles.alertText}>
-          {activeAlerts ? JSON.stringify(activeAlerts, null, 2) : "Service Alert not available"}
-        </Text>
-      </ScrollView>
+      
+      <Animated.View style={[
+        styles.animatedModal,
+        { transform: [{ translateY: slideAnim }] }
+      ]}>
+        <Add onBack={() => setCurrentScreen('Home')} />
+      </Animated.View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 60,
-    paddingHorizontal: 20,
-    backgroundColor: '#121212'
-  },
   centered: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#121212'
+    alignItems: 'center'
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20
-  },
-  subTitle: {
-    color: '#888',
-    marginTop: 20,
-    marginBottom: 5,
-    fontSize: 14,
-    textTransform: 'uppercase'
-  },
-  testCard: {
-    backgroundColor: '#252525',
-    padding: 15,
-    borderRadius: 12,
-    borderLeftWidth: 4,
-    borderLeftColor: '#c3ff00',
-  },
-  cardHeader: {
-    color: '#888',
-    fontSize: 12,
-    marginBottom: 10
-  },
-  resultText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
-    marginBottom: 5
-  },
-  alertDetail: {
-    color: '#00c3ff',
-    fontSize: 12,
-    marginTop: 10,
-    fontStyle: 'italic'
-  },
-  jsonScroll: {
-    flex: 1,
-    backgroundColor: '#000',
-    padding: 10,
-    borderRadius: 10,
-    marginTop: 10
-  },
-  alertText: {
-    color: '#00c3ff',
-    fontFamily: 'monospace',
-    fontSize: 11,
-    marginTop: 20
-  },
-  tripText: {
-    color: '#c3ff00',
-    fontFamily: 'monospace',
-    fontSize: 11,
+  animatedModal: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    top: 0, 
+    backgroundColor: '#F1F3F2',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -5 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 10,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    overflow: 'hidden'
   }
 });
