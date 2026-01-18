@@ -1,4 +1,5 @@
 package com.anonymous.BusBell.data
+import android.util.Log
 import com.google.transit.realtime.GtfsRealtime.FeedMessage
 import com.anonymous.BusBell.BuildConfig
 import com.anonymous.BusBell.data.model.TripObject
@@ -33,37 +34,54 @@ object TranslinkRepo : TranslinkInterface {
     private fun fetchFeed(endpoint: String): FeedMessage {
         val url = URL("$BASE_URL/$endpoint?apikey=$API_KEY")
         val stream = url.openStream()
-        return FeedMessage.parseFrom(stream)
+        val res = FeedMessage.parseFrom(stream)
+        return res
     }
 
     override fun getTripsByRouteAndStop(stopId: String, routeId: String): List<TripObject> {
         refreshDataIfNeeded()
+        // Main CULPRIT
         val feed = cachedUpdates ?: return emptyList()
-        val results = ArrayList<TripObject>()
 
-        for (entity in feed.entityList) {
-            if (!entity.hasTripUpdate()) continue
+        Log.i("TranslinkRaw", "--- START RAW FEED DUMP (Top 20 Entities) ---")
+        Log.i("TranslinkRaw", "Searching for: Route: [$routeId], Stop: [$stopId]")
 
-            val tripUpdate = entity.tripUpdate
-            val trip = tripUpdate.trip
-
-            if (trip.routeId != routeId) continue
-
-            val stopTimeUpdate = tripUpdate.stopTimeUpdateList.find { it.stopId == stopId }
-
-            if (stopTimeUpdate != null) {
-                val arrivalTimeSec = stopTimeUpdate.arrival?.time ?: 0L
-                if (arrivalTimeSec > 0) {
-                    results.add(
-                        TripObject(
-                            id = trip.tripId,
-                            expectedCountdown = arrivalTimeSec * 1000L
-                        )
-                    )
-                }
+        feed.entityList.take(20).forEachIndexed { index, entity ->
+            if (entity.hasTripUpdate()) {
+                val t = entity.tripUpdate.trip
+                val s = entity.tripUpdate.stopTimeUpdateList.map { it.stopId }
+                Log.d("TranslinkRaw", "Trip #$index: RouteID: [${t.routeId}], TripID: [${t.tripId}], Stops in this trip: $s")
             }
         }
-        return results
+        Log.i("TranslinkRaw", "--- END RAW FEED DUMP ---")
+
+
+        val targetRouteNumber = routeId.split(" ")[0].trimStart('0')
+
+        return feed.entityList
+            .filter { entity ->
+                if (!entity.hasTripUpdate()) return@filter false
+
+                val trip = entity.tripUpdate.trip
+                val feedRouteNumber = trip.routeId.trimStart('0')
+
+                val isCorrectRoute = feedRouteNumber == targetRouteNumber
+                val servesStop = entity.tripUpdate.stopTimeUpdateList.any { it.stopId == stopId }
+
+                isCorrectRoute && servesStop
+            }
+            .mapNotNull { entity ->
+                val tripUpdate = entity.tripUpdate
+                val stopTimeUpdate = tripUpdate.stopTimeUpdateList.find { it.stopId == stopId }
+
+                val arrivalTimeSec = stopTimeUpdate?.arrival?.time ?: 0L
+                if (arrivalTimeSec > 0) {
+                    TripObject(
+                        id = tripUpdate.trip.tripId,
+                        expectedCountdown = arrivalTimeSec * 1000L
+                    )
+                } else null
+            }
     }
 
     override fun getTripEstimatedArrival(stopId: String, tripId: String): Long? {
