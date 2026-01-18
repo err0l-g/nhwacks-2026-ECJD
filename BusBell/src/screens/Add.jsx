@@ -13,6 +13,8 @@ export default function Add({
   const [label, setLabel] = useState('');
   const [selectedStop, setSelectedStop] = useState(null);
   const [selectedThreshold, setSelectedThreshold] = useState(5);
+  const [selectedHour, setSelectedHour] = useState(8);
+  const [selectedMinute, setSelectedMinute] = useState(30);
   const [isNotifyExpanded, setIsNotifyExpanded] = useState(false);
   const notifyExpandAnim = useRef(new Animated.Value(0)).current;
   const [isRepeatExpanded, setIsRepeatExpanded] = useState(false);
@@ -208,7 +210,47 @@ export default function Add({
 
           <View style={styles.divider} />
           <TouchableOpacity style={styles.row} onPress={toggleNotify}>
-            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Notify Me</Text>
+            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Bus Arrival Approximate Time</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={styles.rowValue}>{String(selectedHour).padStart(2, "0")}:{String(selectedMinute).padStart(2, "0")}</Text>
+              <Ionicons name={isNotifyExpanded ? 'chevron-down' : 'chevron-forward'} size={16} color="#84A98C" />
+            </View>
+          </TouchableOpacity>
+
+          <Animated.View style={{ height: notifyHeight, overflow: 'hidden', flexDirection: 'row' }}>
+            <ScrollView nestedScrollEnabled={true} style={{ backgroundColor: '#F9FAFA' }}>
+              {Array.from({ length: 24 }, (_, i) => i + 1).map((hour) => (
+                <TouchableOpacity
+                  key={hour}
+                  style={styles.verticalOptionSimple}
+                  onPress={() => {
+                     setSelectedHour(hour); toggleNotify(); 
+                    }}
+                >
+                  <Text style={[styles.minText, selectedHour === hour && { color: '#84A98C', fontWeight: '800' }]}>
+                    {hour}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+            <ScrollView nestedScrollEnabled={true} style={{ backgroundColor: '#F9FAFA' }}>
+              {Array.from({ length: 60 }, (_, i) => i + 1).map((min) => (
+                <TouchableOpacity
+                  key={min}
+                  style={styles.verticalOptionSimple}
+                  onPress={() => { setSelectedMinute(min); toggleNotify(); }}
+                >
+                  <Text style={[styles.minText, selectedMinute === min && { color: '#84A98C', fontWeight: '800' }]}>
+                    {min}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </Animated.View>
+          
+          <View style={styles.divider} />
+          <TouchableOpacity style={styles.row} onPress={toggleNotify}>
+            <Text style={[ styles.rowLabel, { paddingVertical: 20 }]}>Notify Me Before</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.rowValue}>{selectedThreshold} minutes</Text>
               <Ionicons name={isNotifyExpanded ? 'chevron-down' : 'chevron-forward'} size={16} color="#84A98C" />
