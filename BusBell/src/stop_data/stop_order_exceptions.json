@@ -1,0 +1,658 @@
+[
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11295",
+    "stop_name": "RICHMOND-BRIGHOUSE STATION",
+    "stop_do": "1"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11293",
+    "stop_name": "LANSDOWNE STATION",
+    "stop_do": "2"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11291",
+    "stop_name": "ABERDEEN STATION",
+    "stop_do": "3"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "12947",
+    "stop_name": "CAPSTAN STATION",
+    "stop_do": "4"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11301",
+    "stop_name": "YVR-AIRPORT STATION",
+    "stop_do": "5"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11299",
+    "stop_name": "SEA ISLAND CENTRE STATION",
+    "stop_do": "6"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11297",
+    "stop_name": "TEMPLETON STATION",
+    "stop_do": "7"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11289",
+    "stop_name": "BRIDGEPORT STATION",
+    "stop_do": "8"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11287",
+    "stop_name": "MARINE DRIVE STATION",
+    "stop_do": "9"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11285",
+    "stop_name": "LANGARA-49TH AVENUE STATION",
+    "stop_do": "10"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11283",
+    "stop_name": "OAKRIDGE-41ST AVENUE STATION",
+    "stop_do": "11"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11281",
+    "stop_name": "KING EDWARD STATION",
+    "stop_do": "12"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11279",
+    "stop_name": "BROADWAY-CITY HALL STATION",
+    "stop_do": "13"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11277",
+    "stop_name": "OLYMPIC VILLAGE STATION",
+    "stop_do": "14"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11275",
+    "stop_name": "YALETOWN-ROUNDHOUSE STATION",
+    "stop_do": "15"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11273",
+    "stop_name": "VANCOUVER CITY CENTRE STATION",
+    "stop_do": "16"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Northbound",
+    "direction_do": "0",
+    "stop_id": "11303",
+    "stop_name": "WATERFRONT STATION CANADA LINE",
+    "stop_do": "17"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11302",
+    "stop_name": "WATERFRONT STATION CANADA LINE",
+    "stop_do": "1"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11272",
+    "stop_name": "VANCOUVER CITY CENTRE STATION",
+    "stop_do": "2"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11274",
+    "stop_name": "YALETOWN-ROUNDHOUSE STATION",
+    "stop_do": "3"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11276",
+    "stop_name": "OLYMPIC VILLAGE STATION",
+    "stop_do": "4"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11278",
+    "stop_name": "BROADWAY-CITY HALL STATION",
+    "stop_do": "5"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11280",
+    "stop_name": "KING EDWARD STATION",
+    "stop_do": "6"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11282",
+    "stop_name": "OAKRIDGE-41ST AVENUE STATION",
+    "stop_do": "7"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11284",
+    "stop_name": "LANGARA-49TH AVENUE STATION",
+    "stop_do": "8"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11286",
+    "stop_name": "MARINE DRIVE STATION",
+    "stop_do": "9"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11288",
+    "stop_name": "BRIDGEPORT STATION",
+    "stop_do": "10"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "12946",
+    "stop_name": "CAPSTAN STATION",
+    "stop_do": "11"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11290",
+    "stop_name": "ABERDEEN STATION",
+    "stop_do": "12"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11292",
+    "stop_name": "LANSDOWNE STATION",
+    "stop_do": "13"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11294",
+    "stop_name": "RICHMOND-BRIGHOUSE STATION",
+    "stop_do": "14"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11296",
+    "stop_name": "TEMPLETON STATION",
+    "stop_do": "15"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11298",
+    "stop_name": "SEA ISLAND CENTRE STATION",
+    "stop_do": "16"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_name": "Southbound",
+    "direction_do": "1",
+    "stop_id": "11300",
+    "stop_name": "YVR-AIRPORT STATION",
+    "stop_do": "17"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8039",
+    "stop_name": "WATERFRONT STATION PLATFORM 2",
+    "stop_do": "1"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8040",
+    "stop_name": "BURRARD STATION PLATFORM 2",
+    "stop_do": "2"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8041",
+    "stop_name": "GRANVILLE STATION PLATFORM 2",
+    "stop_do": "3"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8042",
+    "stop_name": "STADIUM-CHINATOWN STATION PLATFORM 2",
+    "stop_do": "4"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8043",
+    "stop_name": "MAIN STREET-SCIENCE WORLD STATION PLATFORM 2",
+    "stop_do": "5"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8044",
+    "stop_name": "COMMERCIAL-BROADWAY STATION PLATFORM 4",
+    "stop_do": "6"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8045",
+    "stop_name": "NANAIMO STATION PLATFORM 2",
+    "stop_do": "7"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8046",
+    "stop_name": "29TH AVENUE STATION PLATFORM 2",
+    "stop_do": "8"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8047",
+    "stop_name": "JOYCE-COLLINGWOOD STATION PLATFORM 2",
+    "stop_do": "9"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8048",
+    "stop_name": "PATTERSON STATION PLATFORM 2",
+    "stop_do": "10"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8049",
+    "stop_name": "METROTOWN STATION PLATFORM 2",
+    "stop_do": "11"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8050",
+    "stop_name": "ROYAL OAK STATION PLATFORM 2",
+    "stop_do": "12"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8051",
+    "stop_name": "EDMONDS STATION PLATFORM 2",
+    "stop_do": "13"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8052",
+    "stop_name": "22ND STREET STATION PLATFORM 2",
+    "stop_do": "14"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8053",
+    "stop_name": "NEW WESTMINSTER STATION PLATFORM 2",
+    "stop_do": "15"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8054",
+    "stop_name": "COLUMBIA STATION PLATFORM 2",
+    "stop_do": "16"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8055",
+    "stop_name": "SCOTT ROAD STATION PLATFORM 2",
+    "stop_do": "17"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8056",
+    "stop_name": "GATEWAY STATION PLATFORM 2",
+    "stop_do": "18"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8057",
+    "stop_name": "SURREY CENTRAL STATION PLATFORM 2",
+    "stop_do": "19"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8058",
+    "stop_name": "KING GEORGE STATION PLATFORM 2",
+    "stop_do": "20"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8580",
+    "stop_name": "SAPPERTON STATION PLATFORM 2",
+    "stop_do": "21"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8578",
+    "stop_name": "BRAID STATION PLATFORM 2",
+    "stop_do": "22"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8746",
+    "stop_name": "LOUGHEED TOWN CENTRE STATION PLATFORM 2",
+    "stop_do": "23"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Eastbound",
+    "direction_do": "0",
+    "stop_id": "8747",
+    "stop_name": "PRODUCTION WAY-UNIVERSITY STATION PLATFORM 1",
+    "stop_do": "24"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8756",
+    "stop_name": "PRODUCTION WAY-UNIVERSITY STATION PLATFORM 2",
+    "stop_do": "1"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8755",
+    "stop_name": "LOUGHEED TOWN CENTRE STATION PLATFORM 1",
+    "stop_do": "2"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8577",
+    "stop_name": "BRAID STATION PLATFORM 1",
+    "stop_do": "3"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8579",
+    "stop_name": "SAPPERTON STATION PLATFORM 1",
+    "stop_do": "4"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8059",
+    "stop_name": "KING GEORGE STATION PLATFORM 1",
+    "stop_do": "5"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8060",
+    "stop_name": "SURREY CENTRAL STATION PLATFORM 1",
+    "stop_do": "6"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8061",
+    "stop_name": "GATEWAY STATION PLATFORM 1",
+    "stop_do": "7"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8062",
+    "stop_name": "SCOTT ROAD STATION PLATFORM 1",
+    "stop_do": "8"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8063",
+    "stop_name": "COLUMBIA STATION PLATFORM 1",
+    "stop_do": "9"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8064",
+    "stop_name": "NEW WESTMINSTER STATION PLATFORM 1",
+    "stop_do": "10"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8065",
+    "stop_name": "22ND STREET STATION PLATFORM 1",
+    "stop_do": "11"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8066",
+    "stop_name": "EDMONDS STATION PLATFORM 1",
+    "stop_do": "12"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8067",
+    "stop_name": "ROYAL OAK STATION PLATFORM 1",
+    "stop_do": "13"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8068",
+    "stop_name": "METROTOWN STATION PLATFORM 1",
+    "stop_do": "14"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8069",
+    "stop_name": "PATTERSON STATION PLATFORM 1",
+    "stop_do": "15"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8070",
+    "stop_name": "JOYCE-COLLINGWOOD STATION PLATFORM 1",
+    "stop_do": "16"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8071",
+    "stop_name": "29TH AVENUE STATION PLATFORM 1",
+    "stop_do": "17"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8072",
+    "stop_name": "NANAIMO STATION PLATFORM 1",
+    "stop_do": "18"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8073",
+    "stop_name": "COMMERCIAL-BROADWAY STATION PLATFORM 3",
+    "stop_do": "19"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8074",
+    "stop_name": "MAIN STREET-SCIENCE WORLD STATION PLATFORM 1",
+    "stop_do": "20"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8075",
+    "stop_name": "STADIUM-CHINATOWN STATION PLATFORM 1",
+    "stop_do": "21"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8076",
+    "stop_name": "GRANVILLE STATION PLATFORM 1",
+    "stop_do": "22"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8077",
+    "stop_name": "BURRARD STATION PLATFORM 1",
+    "stop_do": "23"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_name": "Westbound",
+    "direction_do": "1",
+    "stop_id": "8078",
+    "stop_name": "WATERFRONT STATION PLATFORM 1",
+    "stop_do": "24"
+  }
+]

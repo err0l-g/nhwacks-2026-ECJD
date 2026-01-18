@@ -1,0 +1,2960 @@
+[
+  {
+    "route_name": "2",
+    "direction_id": "0",
+    "direction_name": "Burrard Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "2",
+    "direction_id": "1",
+    "direction_name": "Dunbar Loop/Macdonald-16th Ave",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "3",
+    "direction_id": "0",
+    "direction_name": "Waterfront Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "3",
+    "direction_id": "1",
+    "direction_name": "Main-Marine Drive Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "4",
+    "direction_id": "0",
+    "direction_name": "Downtown/Powell",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "4",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "5",
+    "direction_id": "0",
+    "direction_name": "Downtown",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "5",
+    "direction_id": "1",
+    "direction_name": "Robson",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "6",
+    "direction_id": "0",
+    "direction_name": "Downtown",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "6",
+    "direction_id": "1",
+    "direction_name": "Davie",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "7",
+    "direction_id": "0",
+    "direction_name": "Nanaimo Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "7",
+    "direction_id": "1",
+    "direction_name": "Dunbar",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "8",
+    "direction_id": "0",
+    "direction_name": "Fraser/SE Marine Dr",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "8",
+    "direction_id": "1",
+    "direction_name": "Waterfront Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "9",
+    "direction_id": "0",
+    "direction_name": "Commercial-Broadway Station/Boundary",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "9",
+    "direction_id": "1",
+    "direction_name": "Granville/Alma/UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "10",
+    "direction_id": "0",
+    "direction_name": "Waterfront Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "10",
+    "direction_id": "1",
+    "direction_name": "Granville/Marine Dr Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "14",
+    "direction_id": "0",
+    "direction_name": "Downtown/Hastings",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "14",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "15",
+    "direction_id": "0",
+    "direction_name": "Olympic Village Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "15",
+    "direction_id": "1",
+    "direction_name": "Cambie",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "16",
+    "direction_id": "0",
+    "direction_name": "29th Ave Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "16",
+    "direction_id": "1",
+    "direction_name": "Arbutus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "17",
+    "direction_id": "0",
+    "direction_name": "Downtown",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "17",
+    "direction_id": "1",
+    "direction_name": "Oak",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "19",
+    "direction_id": "0",
+    "direction_name": "Metrotown Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "19",
+    "direction_id": "1",
+    "direction_name": "Stanley Park",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "20",
+    "direction_id": "0",
+    "direction_name": "Downtown/Victoria to 41st Ave",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "20",
+    "direction_id": "1",
+    "direction_name": "Victoria/ Victoria to 41st Ave/Victoria to 54th Ave",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "22",
+    "direction_id": "0",
+    "direction_name": "Knight",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "22",
+    "direction_id": "1",
+    "direction_name": "Downtown",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "23",
+    "direction_id": "0",
+    "direction_name": "Main Street Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "23",
+    "direction_id": "1",
+    "direction_name": "English Bay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "25",
+    "direction_id": "0",
+    "direction_name": "Brentwood Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "25",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "26",
+    "direction_id": "0",
+    "direction_name": "Joyce Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "26",
+    "direction_id": "1",
+    "direction_name": "29th Ave Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "27",
+    "direction_id": "0",
+    "direction_name": "Kootenay Loop",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "27",
+    "direction_id": "1",
+    "direction_name": "Joyce Station/To Kingsway",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "28",
+    "direction_id": "0",
+    "direction_name": "Phibbs Exchange/Kootenay Loop",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "28",
+    "direction_id": "1",
+    "direction_name": "Joyce Station/Kootenay Loop",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "29",
+    "direction_id": "0",
+    "direction_name": "29th Ave Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "29",
+    "direction_id": "1",
+    "direction_name": "Elliott",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "31",
+    "direction_id": "0",
+    "direction_name": "Metrotown Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "31",
+    "direction_id": "1",
+    "direction_name": "River District",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "32",
+    "direction_id": "0",
+    "direction_name": "Downtown",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "32",
+    "direction_id": "1",
+    "direction_name": "Dunbar",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "33",
+    "direction_id": "0",
+    "direction_name": "29th Ave Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "33",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "41",
+    "direction_id": "0",
+    "direction_name": "Joyce Station/To Granville St",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "41",
+    "direction_id": "1",
+    "direction_name": "Crown/To Granville St/Oak St",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "42",
+    "direction_id": "0",
+    "direction_name": "Alma",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "42",
+    "direction_id": "1",
+    "direction_name": "Spanish Banks",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "44",
+    "direction_id": "0",
+    "direction_name": "Downtown/Dundrave Express",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "44",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "49",
+    "direction_id": "0",
+    "direction_name": "Metrotown Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "49",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "50",
+    "direction_id": "0",
+    "direction_name": "Waterfront Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "50",
+    "direction_id": "1",
+    "direction_name": "False Creek South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "68",
+    "direction_id": "0",
+    "direction_name": "UBC Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "68",
+    "direction_id": "1",
+    "direction_name": "Wesbrook Village",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "80",
+    "direction_id": "0",
+    "direction_name": "River District",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "80",
+    "direction_id": "1",
+    "direction_name": "Marine Drive Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "84",
+    "direction_id": "0",
+    "direction_name": "VCC-Clark Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "84",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "99",
+    "direction_id": "0",
+    "direction_name": "Commercial-Broadway Station B-Line/To Boundary B-Line",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "99",
+    "direction_id": "1",
+    "direction_name": "UBC B-Line",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "100",
+    "direction_id": "0",
+    "direction_name": "22nd St Station/22nd St Station via Trapp",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "100",
+    "direction_id": "1",
+    "direction_name": "Marpole/Marpole via Trapp",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "101",
+    "direction_id": "0",
+    "direction_name": "Lougheed Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "101",
+    "direction_id": "1",
+    "direction_name": "22nd St Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "102",
+    "direction_id": "0",
+    "direction_name": "Victoria Hill",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "102",
+    "direction_id": "1",
+    "direction_name": "New Westminster Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "103",
+    "direction_id": "0",
+    "direction_name": "New Westminster Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "103",
+    "direction_id": "1",
+    "direction_name": "Quayside",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "104",
+    "direction_id": "0",
+    "direction_name": "22nd St Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "104",
+    "direction_id": "1",
+    "direction_name": "Annacis Island",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "105",
+    "direction_id": "0",
+    "direction_name": "Uptown",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "105",
+    "direction_id": "1",
+    "direction_name": "New Westminster Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "106",
+    "direction_id": "0",
+    "direction_name": "New Westminster Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "106",
+    "direction_id": "1",
+    "direction_name": "Edmonds Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "109",
+    "direction_id": "0",
+    "direction_name": "Lougheed Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "109",
+    "direction_id": "1",
+    "direction_name": "New Westminster Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "110",
+    "direction_id": "0",
+    "direction_name": "Lougheed Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "110",
+    "direction_id": "1",
+    "direction_name": "Metrotown Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "112",
+    "direction_id": "0",
+    "direction_name": "New Westminster Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "112",
+    "direction_id": "1",
+    "direction_name": "Edmonds Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "116",
+    "direction_id": "0",
+    "direction_name": "Edmonds Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "116",
+    "direction_id": "1",
+    "direction_name": "Metrotown Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "119",
+    "direction_id": "0",
+    "direction_name": "Edmonds Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "119",
+    "direction_id": "1",
+    "direction_name": "Metrotown Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "123",
+    "direction_id": "0",
+    "direction_name": "New Westminster Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "123",
+    "direction_id": "1",
+    "direction_name": "Brentwood Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "128",
+    "direction_id": "0",
+    "direction_name": "Braid Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "128",
+    "direction_id": "1",
+    "direction_name": "22nd St Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "129",
+    "direction_id": "0",
+    "direction_name": "Holdom Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "129",
+    "direction_id": "1",
+    "direction_name": "Patterson Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "130",
+    "direction_id": "0",
+    "direction_name": "Kootenay Loop/Phibbs Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "130",
+    "direction_id": "1",
+    "direction_name": "Metrotown Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "131",
+    "direction_id": "0",
+    "direction_name": "Hastings at Gilmore",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "131",
+    "direction_id": "1",
+    "direction_name": "Kootenay Loop",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "132",
+    "direction_id": "0",
+    "direction_name": "Capitol Hill",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "132",
+    "direction_id": "1",
+    "direction_name": "Hastings at Gilmore",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "133",
+    "direction_id": "0",
+    "direction_name": "Edmonds Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "133",
+    "direction_id": "1",
+    "direction_name": "Holdom Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "134",
+    "direction_id": "0",
+    "direction_name": "Lake City Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "134",
+    "direction_id": "1",
+    "direction_name": "Brentwood Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "136",
+    "direction_id": "0",
+    "direction_name": "Lougheed Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "136",
+    "direction_id": "1",
+    "direction_name": "Brentwood Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "143",
+    "direction_id": "0",
+    "direction_name": "Burquitlam Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "143",
+    "direction_id": "1",
+    "direction_name": "SFU",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "144",
+    "direction_id": "0",
+    "direction_name": "SFU",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "144",
+    "direction_id": "1",
+    "direction_name": "Metrotown Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "145",
+    "direction_id": "0",
+    "direction_name": "SFU",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "145",
+    "direction_id": "1",
+    "direction_name": "Production Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "146",
+    "direction_id": "0",
+    "direction_name": "Metrotown Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "146",
+    "direction_id": "1",
+    "direction_name": "Suncrest",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "147",
+    "direction_id": "0",
+    "direction_name": "Edmonds Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "147",
+    "direction_id": "1",
+    "direction_name": "Metrotown Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "148",
+    "direction_id": "0",
+    "direction_name": "Edmonds Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "148",
+    "direction_id": "1",
+    "direction_name": "Royal Oak Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "150",
+    "direction_id": "0",
+    "direction_name": "White Pine Beach",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "150",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "151",
+    "direction_id": "0",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "151",
+    "direction_id": "1",
+    "direction_name": "Burquitlam Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "152",
+    "direction_id": "0",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "152",
+    "direction_id": "1",
+    "direction_name": "Lougheed Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "153",
+    "direction_id": "0",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "153",
+    "direction_id": "1",
+    "direction_name": "Braid Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "155",
+    "direction_id": "0",
+    "direction_name": "Braid Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "155",
+    "direction_id": "1",
+    "direction_name": "22nd Street Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "156",
+    "direction_id": "0",
+    "direction_name": "Braid Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "156",
+    "direction_id": "1",
+    "direction_name": "Lougheed Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "157",
+    "direction_id": "0",
+    "direction_name": "Burquitlam Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "157",
+    "direction_id": "1",
+    "direction_name": "Lougheed Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "159",
+    "direction_id": "0",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "159",
+    "direction_id": "1",
+    "direction_name": "Braid Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "160",
+    "direction_id": "0",
+    "direction_name": "Port Coquitlam Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "160",
+    "direction_id": "1",
+    "direction_name": "Kootenay Loop",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "169",
+    "direction_id": "0",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "169",
+    "direction_id": "1",
+    "direction_name": "Braid Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "170",
+    "direction_id": "0",
+    "direction_name": "Port Coquitlam Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "170",
+    "direction_id": "1",
+    "direction_name": "Port Coquitlam South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "171",
+    "direction_id": "0",
+    "direction_name": "Fremont",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "171",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "172",
+    "direction_id": "0",
+    "direction_name": "Riverside",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "172",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "173",
+    "direction_id": "0",
+    "direction_name": "Cedar",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "173",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "174",
+    "direction_id": "0",
+    "direction_name": "Rocklin",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "174",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "175",
+    "direction_id": "0",
+    "direction_name": "Meridian",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "175",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "179",
+    "direction_id": "0",
+    "direction_name": "Buntzen Lake",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "179",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "180",
+    "direction_id": "0",
+    "direction_name": "Moody Centre Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "180",
+    "direction_id": "1",
+    "direction_name": "Lougheed Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "181",
+    "direction_id": "0",
+    "direction_name": "Ioco/Belcarra",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "181",
+    "direction_id": "1",
+    "direction_name": "Moody Centre Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "182",
+    "direction_id": "0",
+    "direction_name": "Belcarra",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "182",
+    "direction_id": "1",
+    "direction_name": "Moody Centre Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "183",
+    "direction_id": "0",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "183",
+    "direction_id": "1",
+    "direction_name": "Moody Centre Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "184",
+    "direction_id": "0",
+    "direction_name": "Noons Creek",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "184",
+    "direction_id": "1",
+    "direction_name": "Moody Centre Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "185",
+    "direction_id": "0",
+    "direction_name": "Lansdowne",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "185",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "186",
+    "direction_id": "0",
+    "direction_name": "Hampton Park",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "186",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "187",
+    "direction_id": "0",
+    "direction_name": "Parkway",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "187",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "188",
+    "direction_id": "0",
+    "direction_name": "Port Coquitlam Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "188",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "189",
+    "direction_id": "0",
+    "direction_name": "Lafarge",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "189",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "191",
+    "direction_id": "0",
+    "direction_name": "Princeton",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "191",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "209",
+    "direction_id": "0",
+    "direction_name": "Upper Lynn Valley",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "209",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange/Burrard Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "210",
+    "direction_id": "0",
+    "direction_name": "Upper Lynn Valley",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "210",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange/Burrard Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "211",
+    "direction_id": "0",
+    "direction_name": "Seymour",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "211",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange/Burrard Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "212",
+    "direction_id": "0",
+    "direction_name": "Deep Cove",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "212",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "214",
+    "direction_id": "0",
+    "direction_name": "Blueridge",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "214",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange/Burrard Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "215",
+    "direction_id": "0",
+    "direction_name": "Indian River",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "215",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "222",
+    "direction_id": "0",
+    "direction_name": "Phibbs Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "222",
+    "direction_id": "1",
+    "direction_name": "Metrotown Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "226",
+    "direction_id": "0",
+    "direction_name": "Lynn Canyon Park",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "226",
+    "direction_id": "1",
+    "direction_name": "Lynn Valley",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "227",
+    "direction_id": "0",
+    "direction_name": "Lynn Valley",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "227",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "228",
+    "direction_id": "0",
+    "direction_name": "Lynn Valley",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "228",
+    "direction_id": "1",
+    "direction_name": "Lonsdale Quay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "229",
+    "direction_id": "0",
+    "direction_name": "Lynn Valley",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "229",
+    "direction_id": "1",
+    "direction_name": "Lonsdale Quay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "230",
+    "direction_id": "0",
+    "direction_name": "Upper Lonsdale",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "230",
+    "direction_id": "1",
+    "direction_name": "Lonsdale Quay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "231",
+    "direction_id": "0",
+    "direction_name": "Lonsdale Quay",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "231",
+    "direction_id": "1",
+    "direction_name": "Harbourside",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "232",
+    "direction_id": "0",
+    "direction_name": "Phibbs Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "232",
+    "direction_id": "1",
+    "direction_name": "Grouse Mountain",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "236",
+    "direction_id": "0",
+    "direction_name": "Grouse Mountain",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "236",
+    "direction_id": "1",
+    "direction_name": "Lonsdale Quay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "240",
+    "direction_id": "0",
+    "direction_name": "Lynn Valley",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "240",
+    "direction_id": "1",
+    "direction_name": "Downtown",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "241",
+    "direction_id": "0",
+    "direction_name": "Upper Lonsdale",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "241",
+    "direction_id": "1",
+    "direction_name": "Downtown",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "245",
+    "direction_id": "0",
+    "direction_name": "Capilano University",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "245",
+    "direction_id": "1",
+    "direction_name": "Phibbs Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "246",
+    "direction_id": "0",
+    "direction_name": "Highland",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "246",
+    "direction_id": "1",
+    "direction_name": "Downtown",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "247",
+    "direction_id": "0",
+    "direction_name": "Grouse Mountain",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "247",
+    "direction_id": "1",
+    "direction_name": "Downtown",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "249",
+    "direction_id": "0",
+    "direction_name": "Delbrook",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "249",
+    "direction_id": "1",
+    "direction_name": "Lonsdale Quay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "250",
+    "direction_id": "0",
+    "direction_name": "Vancouver",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "250",
+    "direction_id": "1",
+    "direction_name": "Dundarave/Horseshoe Bay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "251",
+    "direction_id": "0",
+    "direction_name": "Park Royal",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "251",
+    "direction_id": "1",
+    "direction_name": "Queens",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "252",
+    "direction_id": "0",
+    "direction_name": "Park Royal",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "252",
+    "direction_id": "1",
+    "direction_name": "Inglewood",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "253",
+    "direction_id": "0",
+    "direction_name": "Park Royal/Vancouver",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "253",
+    "direction_id": "1",
+    "direction_name": "Caulfeild",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "254",
+    "direction_id": "0",
+    "direction_name": "British Properties",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "254",
+    "direction_id": "1",
+    "direction_name": "Park Royal/Vancouver",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "255",
+    "direction_id": "0",
+    "direction_name": "Capilano University",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "255",
+    "direction_id": "1",
+    "direction_name": "Dundarave",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "256",
+    "direction_id": "0",
+    "direction_name": "Whitby Estates",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "256",
+    "direction_id": "1",
+    "direction_name": "Park Royal",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "257",
+    "direction_id": "0",
+    "direction_name": "Vancouver",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "257",
+    "direction_id": "1",
+    "direction_name": "Horseshoe Bay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "258",
+    "direction_id": "0",
+    "direction_name": "West Vancouver",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "258",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "262",
+    "direction_id": "0",
+    "direction_name": "Lions Bay/Brunswick",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "262",
+    "direction_id": "1",
+    "direction_name": "Caulfeild",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "280",
+    "direction_id": "0",
+    "direction_name": "Snug Cove",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "280",
+    "direction_id": "1",
+    "direction_name": "Bluewater",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "281",
+    "direction_id": "0",
+    "direction_name": "Eaglecliff",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "281",
+    "direction_id": "1",
+    "direction_name": "Snug Cove",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "282",
+    "direction_id": "0",
+    "direction_name": "Mt Gardner",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "282",
+    "direction_id": "1",
+    "direction_name": "Snug Cove",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "301",
+    "direction_id": "0",
+    "direction_name": "Newton Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "301",
+    "direction_id": "1",
+    "direction_name": "Brighouse Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "310",
+    "direction_id": "0",
+    "direction_name": "Scottsdale",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "310",
+    "direction_id": "1",
+    "direction_name": "Ladner",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "311",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "311",
+    "direction_id": "1",
+    "direction_name": "Scottsdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "312",
+    "direction_id": "0",
+    "direction_name": "Scott Road Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "312",
+    "direction_id": "1",
+    "direction_name": "Scottsdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "314",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "314",
+    "direction_id": "1",
+    "direction_name": "Scott & 96/Sunbury",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "316",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "316",
+    "direction_id": "1",
+    "direction_name": "Scottsdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "319",
+    "direction_id": "0",
+    "direction_name": "Scott Road Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "319",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "320",
+    "direction_id": "0",
+    "direction_name": "Fleetwood/Langley Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "320",
+    "direction_id": "1",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "321",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "321",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange/White Rock Centre/White Rock South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "322",
+    "direction_id": "0",
+    "direction_name": "Newton Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "322",
+    "direction_id": "1",
+    "direction_name": "Scottsdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "323",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "323",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "324",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "324",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "325",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "325",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "326",
+    "direction_id": "0",
+    "direction_name": "Guildford",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "326",
+    "direction_id": "1",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "329",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "329",
+    "direction_id": "1",
+    "direction_name": "Scottsdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "335",
+    "direction_id": "0",
+    "direction_name": "Newton Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "335",
+    "direction_id": "1",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "337",
+    "direction_id": "0",
+    "direction_name": "Fraser Heights",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "337",
+    "direction_id": "1",
+    "direction_name": "Guildford/Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "338",
+    "direction_id": "0",
+    "direction_name": "East Fraser Heights",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "338",
+    "direction_id": "1",
+    "direction_name": "Guildford",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "340",
+    "direction_id": "0",
+    "direction_name": "Scottsdale",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "340",
+    "direction_id": "1",
+    "direction_name": "22nd St Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "341",
+    "direction_id": "0",
+    "direction_name": "Guildford",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "341",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "342",
+    "direction_id": "0",
+    "direction_name": "Langley Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "342",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "345",
+    "direction_id": "0",
+    "direction_name": "King George Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "345",
+    "direction_id": "1",
+    "direction_name": "White Rock Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "350",
+    "direction_id": "0",
+    "direction_name": "White Rock Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "350",
+    "direction_id": "1",
+    "direction_name": "Crescent Beach",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "351",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "351",
+    "direction_id": "1",
+    "direction_name": "White Rock Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "352",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "352",
+    "direction_id": "1",
+    "direction_name": "Ocean Park",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "354",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "354",
+    "direction_id": "1",
+    "direction_name": "White Rock South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "360",
+    "direction_id": "0",
+    "direction_name": "Peace Arch Hospital",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "360",
+    "direction_id": "1",
+    "direction_name": "Ocean Park",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "361",
+    "direction_id": "0",
+    "direction_name": "White Rock Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "361",
+    "direction_id": "1",
+    "direction_name": "Ocean Park",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "362",
+    "direction_id": "0",
+    "direction_name": "White Rock Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "362",
+    "direction_id": "1",
+    "direction_name": "Seaside",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "363",
+    "direction_id": "0",
+    "direction_name": "Southpoint",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "363",
+    "direction_id": "1",
+    "direction_name": "Peace Arch Hospital",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "364",
+    "direction_id": "0",
+    "direction_name": "Langley Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "364",
+    "direction_id": "1",
+    "direction_name": "Scottsdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "370",
+    "direction_id": "0",
+    "direction_name": "Willowbrook",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "370",
+    "direction_id": "1",
+    "direction_name": "Cloverdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "371",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "371",
+    "direction_id": "1",
+    "direction_name": "Scott Road Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "372",
+    "direction_id": "0",
+    "direction_name": "Langley Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "372",
+    "direction_id": "1",
+    "direction_name": "Clayton Heights",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "373",
+    "direction_id": "0",
+    "direction_name": "Guildford",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "373",
+    "direction_id": "1",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "375",
+    "direction_id": "0",
+    "direction_name": "Guildford",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "375",
+    "direction_id": "1",
+    "direction_name": "White Rock South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "388",
+    "direction_id": "0",
+    "direction_name": "Carvolth Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "388",
+    "direction_id": "1",
+    "direction_name": "22nd St Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "391",
+    "direction_id": "0",
+    "direction_name": "Scott Road Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "391",
+    "direction_id": "1",
+    "direction_name": "Scottsdale",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "393",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "393",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "394",
+    "direction_id": "0",
+    "direction_name": "King George Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "394",
+    "direction_id": "1",
+    "direction_name": "White Rock Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "395",
+    "direction_id": "0",
+    "direction_name": "Langley Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "395",
+    "direction_id": "1",
+    "direction_name": "King George Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "401",
+    "direction_id": "0",
+    "direction_name": "Brighouse Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "401",
+    "direction_id": "1",
+    "direction_name": "One Road",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "402",
+    "direction_id": "0",
+    "direction_name": "Brighouse Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "402",
+    "direction_id": "1",
+    "direction_name": "Two Road",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "403",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "403",
+    "direction_id": "1",
+    "direction_name": "Three Road",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "404",
+    "direction_id": "0",
+    "direction_name": "Four Road",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "404",
+    "direction_id": "1",
+    "direction_name": "Brighouse Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "405",
+    "direction_id": "0",
+    "direction_name": "Cambie",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "405",
+    "direction_id": "1",
+    "direction_name": "Five Road",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "406",
+    "direction_id": "0",
+    "direction_name": "Brighouse Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "406",
+    "direction_id": "1",
+    "direction_name": "Steveston",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "407",
+    "direction_id": "0",
+    "direction_name": "Bridgeport",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "407",
+    "direction_id": "1",
+    "direction_name": "Gilbert",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "408",
+    "direction_id": "0",
+    "direction_name": "Ironwood/Riverport",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "408",
+    "direction_id": "1",
+    "direction_name": "Brighouse Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "410",
+    "direction_id": "0",
+    "direction_name": "22nd St Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "410",
+    "direction_id": "1",
+    "direction_name": "Brighouse Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "412",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "412",
+    "direction_id": "1",
+    "direction_name": "Sea Island South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "413",
+    "direction_id": "0",
+    "direction_name": "Riverport",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "413",
+    "direction_id": "1",
+    "direction_name": "Steveston",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "414",
+    "direction_id": "0",
+    "direction_name": "Brighouse Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "414",
+    "direction_id": "1",
+    "direction_name": "Richmond Oval",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "416",
+    "direction_id": "0",
+    "direction_name": "East Cambie",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "416",
+    "direction_id": "1",
+    "direction_name": "Brighouse Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "418",
+    "direction_id": "0",
+    "direction_name": "22nd St Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "418",
+    "direction_id": "1",
+    "direction_name": "Kingswood",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "430",
+    "direction_id": "0",
+    "direction_name": "Metrotown Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "430",
+    "direction_id": "1",
+    "direction_name": "Brighouse Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "480",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "480",
+    "direction_id": "1",
+    "direction_name": "UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "501",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "501",
+    "direction_id": "1",
+    "direction_name": "Langley Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "502",
+    "direction_id": "0",
+    "direction_name": "Langley Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "502",
+    "direction_id": "1",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "503",
+    "direction_id": "0",
+    "direction_name": "Langley Centre/Aldergrove",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "503",
+    "direction_id": "1",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "509",
+    "direction_id": "0",
+    "direction_name": "Walnut Grove",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "509",
+    "direction_id": "1",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "531",
+    "direction_id": "0",
+    "direction_name": "Willowbrook",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "531",
+    "direction_id": "1",
+    "direction_name": "White Rock Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "555",
+    "direction_id": "0",
+    "direction_name": "Carvolth Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "555",
+    "direction_id": "1",
+    "direction_name": "Lougheed Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "560",
+    "direction_id": "0",
+    "direction_name": "Murrayville",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "560",
+    "direction_id": "1",
+    "direction_name": "Langley Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "561",
+    "direction_id": "0",
+    "direction_name": "Brookswood",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "561",
+    "direction_id": "1",
+    "direction_name": "Langley Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "562",
+    "direction_id": "0",
+    "direction_name": "Walnut Grove",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "562",
+    "direction_id": "1",
+    "direction_name": "Langley Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "563",
+    "direction_id": "0",
+    "direction_name": "Langley Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "563",
+    "direction_id": "1",
+    "direction_name": "Fernridge",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "564",
+    "direction_id": "0",
+    "direction_name": "Willowbrook",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "564",
+    "direction_id": "1",
+    "direction_name": "Langley Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "595",
+    "direction_id": "0",
+    "direction_name": "Maple Meadows Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "595",
+    "direction_id": "1",
+    "direction_name": "Langley Centre",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "601",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "601",
+    "direction_id": "1",
+    "direction_name": "South Delta/Boundary Bay/Ladner Exchange/South Delta Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "602",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "602",
+    "direction_id": "1",
+    "direction_name": "Tsawwassen Heights",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "603",
+    "direction_id": "0",
+    "direction_name": "South Delta Exchange/Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "603",
+    "direction_id": "1",
+    "direction_name": "Beach Grove",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "604",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "604",
+    "direction_id": "1",
+    "direction_name": "English Bluff",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "606",
+    "direction_id": "0",
+    "direction_name": "Ladner Ring to Ladner Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "606",
+    "direction_id": "1",
+    "direction_name": "Ladner Ring to West Ladner",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "608",
+    "direction_id": "0",
+    "direction_name": "Ladner Ring to Ladner Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "608",
+    "direction_id": "1",
+    "direction_name": "Ladner Ring to West Ladner",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "609",
+    "direction_id": "0",
+    "direction_name": "Ladner Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "609",
+    "direction_id": "1",
+    "direction_name": "South Delta Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "614",
+    "direction_id": "0",
+    "direction_name": "South Delta Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "614",
+    "direction_id": "1",
+    "direction_name": "English Bluff",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "616",
+    "direction_id": "0",
+    "direction_name": "Ladner Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "616",
+    "direction_id": "1",
+    "direction_name": "Ladner South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "618",
+    "direction_id": "0",
+    "direction_name": "Ladner North",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "618",
+    "direction_id": "1",
+    "direction_name": "Ladner Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "619",
+    "direction_id": "0",
+    "direction_name": "South Delta Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "619",
+    "direction_id": "1",
+    "direction_name": "Boundary Bay",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "620",
+    "direction_id": "0",
+    "direction_name": "Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "620",
+    "direction_id": "1",
+    "direction_name": "Tsawwassen Ferry",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "640",
+    "direction_id": "0",
+    "direction_name": "Scott Road Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "640",
+    "direction_id": "1",
+    "direction_name": "Ladner Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "701",
+    "direction_id": "0",
+    "direction_name": "Haney Place/Maple Ridge East",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "701",
+    "direction_id": "1",
+    "direction_name": "Coquitlam Central Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "719",
+    "direction_id": "0",
+    "direction_name": "Meadowtown",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "719",
+    "direction_id": "1",
+    "direction_name": "Fraser Way",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "722",
+    "direction_id": "0",
+    "direction_name": "Meadowtown",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "722",
+    "direction_id": "1",
+    "direction_name": "Bonson",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "733",
+    "direction_id": "0",
+    "direction_name": "Rock Ridge",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "733",
+    "direction_id": "1",
+    "direction_name": "Haney Place",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "741",
+    "direction_id": "0",
+    "direction_name": "Anderson Creek",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "741",
+    "direction_id": "1",
+    "direction_name": "Haney Place",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "743",
+    "direction_id": "0",
+    "direction_name": "Haney Place",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "743",
+    "direction_id": "1",
+    "direction_name": "Meadowtown",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "744",
+    "direction_id": "0",
+    "direction_name": "Haney Place",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "744",
+    "direction_id": "1",
+    "direction_name": "Meadowtown",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "745",
+    "direction_id": "0",
+    "direction_name": "Cottonwood",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "745",
+    "direction_id": "1",
+    "direction_name": "Haney Place",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "746",
+    "direction_id": "0",
+    "direction_name": "Albion",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "746",
+    "direction_id": "1",
+    "direction_name": "Haney Place",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "748",
+    "direction_id": "0",
+    "direction_name": "Thornhill",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "748",
+    "direction_id": "1",
+    "direction_name": "Haney Place",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "749",
+    "direction_id": "0",
+    "direction_name": "Ruskin",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "749",
+    "direction_id": "1",
+    "direction_name": "Haney Place",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "791",
+    "direction_id": "0",
+    "direction_name": "Haney Place",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "791",
+    "direction_id": "1",
+    "direction_name": "Braid Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "840",
+    "direction_id": "1",
+    "direction_name": "Brookswood Special",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "848",
+    "direction_id": "1",
+    "direction_name": "Port Moody Secondary",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "855",
+    "direction_id": "0",
+    "direction_name": "Elgin Park Special",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "855",
+    "direction_id": "1",
+    "direction_name": "Southpoint Special",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "861",
+    "direction_id": "0",
+    "direction_name": "Port Coquitlam Centre",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "861",
+    "direction_id": "1",
+    "direction_name": "Port Coquitlam South",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "863",
+    "direction_id": "0",
+    "direction_name": "Terry Fox Secondary",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "864",
+    "direction_id": "1",
+    "direction_name": "Newton Exchange Special",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "865",
+    "direction_id": "1",
+    "direction_name": "Haney Place Special",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "880",
+    "direction_id": "0",
+    "direction_name": "Windsor Secondary",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "880",
+    "direction_id": "1",
+    "direction_name": "Capilano University",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "881",
+    "direction_id": "0",
+    "direction_name": "Carson Graham Secondary",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "881",
+    "direction_id": "1",
+    "direction_name": "Pemberton Heights",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "894",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "894",
+    "direction_id": "1",
+    "direction_name": "King George Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N10",
+    "direction_id": "0",
+    "direction_name": "YVR-Downtown NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N10",
+    "direction_id": "1",
+    "direction_name": "YVR-Brighouse Station NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N15",
+    "direction_id": "0",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N15",
+    "direction_id": "1",
+    "direction_name": "Cambie NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N17",
+    "direction_id": "0",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N17",
+    "direction_id": "1",
+    "direction_name": "UBC NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N19",
+    "direction_id": "0",
+    "direction_name": "Surrey Central Station NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N19",
+    "direction_id": "1",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N20",
+    "direction_id": "0",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N20",
+    "direction_id": "1",
+    "direction_name": "Victoria NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N22",
+    "direction_id": "0",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N22",
+    "direction_id": "1",
+    "direction_name": "Macdonald NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N24",
+    "direction_id": "0",
+    "direction_name": "Lynn Valley NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N24",
+    "direction_id": "1",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N35",
+    "direction_id": "0",
+    "direction_name": "SFU NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N35",
+    "direction_id": "1",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N8",
+    "direction_id": "0",
+    "direction_name": "Fraser NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N8",
+    "direction_id": "1",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "N9",
+    "direction_id": "0",
+    "direction_name": "Coquitlam Central Station NightBus",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "N9",
+    "direction_id": "1",
+    "direction_name": "Downtown NightBus",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_id": "0",
+    "direction_name": "Northbound",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "Canada Line",
+    "direction_id": "1",
+    "direction_name": "Southbound",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_id": "0",
+    "direction_name": "Eastbound",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "Expo Line",
+    "direction_id": "1",
+    "direction_name": "Westbound",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "Millennium Line",
+    "direction_id": "0",
+    "direction_name": "Eastbound",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "Millennium Line",
+    "direction_id": "1",
+    "direction_name": "Westbound",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "WCE",
+    "direction_id": "0",
+    "direction_name": "Mission City",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "WCE",
+    "direction_id": "1",
+    "direction_name": "Waterfront",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "SeaBus",
+    "direction_id": "0",
+    "direction_name": "Lonsdale Quay",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "SeaBus",
+    "direction_id": "1",
+    "direction_name": "Waterfront",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "R1",
+    "direction_id": "0",
+    "direction_name": "King George Blvd to Guildford",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "R1",
+    "direction_id": "1",
+    "direction_name": "King George Blvd to Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "R2",
+    "direction_id": "0",
+    "direction_name": "Marine Drive to Phibbs Exchange",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "R2",
+    "direction_id": "1",
+    "direction_name": "Marine Drive to Park Royal",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "R3",
+    "direction_id": "0",
+    "direction_name": "Lougheed Hwy to Haney Place",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "R3",
+    "direction_id": "1",
+    "direction_name": "Lougheed Hwy to Coq Ctrl Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "R4",
+    "direction_id": "0",
+    "direction_name": "41st Ave to Joyce Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "R4",
+    "direction_id": "1",
+    "direction_name": "41st Ave to UBC",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "R5",
+    "direction_id": "0",
+    "direction_name": "Hastings St to SFU",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "R5",
+    "direction_id": "1",
+    "direction_name": "Hastings St to Burrard Station",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "R6",
+    "direction_id": "0",
+    "direction_name": "Scott Rd to Scott Road Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "R6",
+    "direction_id": "1",
+    "direction_name": "Scott Rd to Newton Exchange",
+    "direction_do": "1"
+  },
+  {
+    "route_name": "900",
+    "direction_id": "0",
+    "direction_name": "Bike Bus to Bridgeport Station",
+    "direction_do": "0"
+  },
+  {
+    "route_name": "900",
+    "direction_id": "1",
+    "direction_name": "Bike Bus to Tsawwassen Ferry",
+    "direction_do": "1"
+  }
+]

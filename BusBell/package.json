@@ -9,8 +9,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "csv-parse": "^6.1.0",
     "expo": "~54.0.31",
     "expo-status-bar": "~3.0.9",
+    "lokijs": "^1.5.12",
     "react": "19.1.0",
     "react-native": "0.81.5"
   },
