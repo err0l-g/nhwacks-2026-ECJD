@@ -19,7 +19,6 @@ export const initDatabase = async () => {
         isEnabled INTEGER
       );
     `);
-    console.log("Database initialized");
   } catch (error) {
     console.error("Error initializing database:", error);
   }
@@ -37,7 +36,6 @@ export const insertAlarm = async (alarm) => {
 // READ
 export const getAlarms = async () => {
   const allRows = await db.getAllAsync('SELECT * FROM alarms');
-  // Convert isEnabled back to boolean from 0/1
   return allRows.map(row => ({
     ...row,
     isEnabled: row.isEnabled === 1
@@ -70,7 +68,6 @@ export const updateAlarm = async (id, details) => {
         id
       ]
     );
-    console.log(`Alarm ${id} updated successfully`);
   } catch (error) {
     console.error("Error updating alarm details:", error);
     throw error;
