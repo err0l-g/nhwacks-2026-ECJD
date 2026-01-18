@@ -52,37 +52,6 @@ export const testConnection = async () => {
   }
 };
 
-// Get all routes
-export const getAllRoutes = async () => {
-  return await apiCall('/routes');
-};
-
-// Get routes with statistics
-export const getRoutesWithStats = async () => {
-  return await apiCall('/routes/stats');
-};
-
-// Get trips by route
-export const getTripsByRoute = async (routeId) => {
-  return await apiCall(`/routes/${routeId}/trips`);
-};
-
-// Get stops by location
-export const getStopsByLocation = async (lat, lon, radius = 0.01) => {
-  const params = new URLSearchParams({
-    lat: lat.toString(),
-    lon: lon.toString(),
-    radius: radius.toString(),
-  });
-  return await apiCall(`/stops/nearby?${params}`);
-};
-
-// Search stops by name
-export const searchStops = async (searchTerm) => {
-  const params = new URLSearchParams({ q: searchTerm });
-  return await apiCall(`/stops/search?${params}`);
-};
-
 // Get routes that serve a specific stop (by stop_code)
 export const getRoutesByStopCode = async (stopCode) => {
   return await apiCall(`/stops/${stopCode}/routes`);
@@ -95,11 +64,6 @@ export const getTripsByRouteShortName = async (routeShortName) => {
 
 export default {
   testConnection,
-  getAllRoutes,
-  getRoutesWithStats,
-  getTripsByRoute,
-  getStopsByLocation,
-  searchStops,
   getRoutesByStopCode,
   getTripsByRouteShortName,
 };
