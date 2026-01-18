@@ -21,9 +21,6 @@ class AlarmModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaM
     /**
      * Schedules a new alarm or updates an existing one.
      *
-     * This method converts the data received from JavaScript (like the ReadableArray of days)
-     * into native Kotlin types and hands them off to the [AlarmScheduler].
-     *
      * @param id A unique integer ID for this alarm (maps to the Android PendingIntent ID).
      * @param hour The hour of the day in 24-hour format (0-23).
      * @param minute The minute of the hour (0-59).

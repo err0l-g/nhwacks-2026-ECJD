@@ -48,7 +48,7 @@ class NotificationService : Service() {
     }
 
     /**
-     * Alarm trigger logic
+     * Alarm trigger logic.
      */
     private fun handleAlarmTrigger() {
        // TODO: TRANSLINK API calling and parsing
