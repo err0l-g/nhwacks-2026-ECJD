@@ -5,20 +5,30 @@ const postgres = require('postgres');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.API_PORT || 3000;
+const PORT = process.env.API_PORT || 10000;
 
-// Enable CORS for React Native
-app.use(cors());
+// Enable CORS for React Native and Expo
+// Allow all origins for development (restrict this in production if needed)
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // PostgreSQL connection using environment variables
-const sql = postgres({
-  host: process.env.DB_HOST,
-  port: parseInt(process.env.DB_PORT),
-  database: process.env.DB_NAME,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-});
+// Use DATABASE_URL if available (Render provides this), otherwise use individual vars
+const sql = process.env.DATABASE_URL 
+  ? postgres(process.env.DATABASE_URL, { ssl: 'require' })
+  : postgres({
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      database: process.env.DB_NAME,
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+    });
 
 // Test endpoint
 app.get('/api/test', async (req, res) => {
@@ -109,8 +119,10 @@ app.get('/api/stops', async (req, res) => {
 
 // Advanced search: filter stops by stop_name, stop_id, or stop_code only
 app.get('/api/stops/advanced-search', async (req, res) => {
+  console.log("searching")
   try {
     const { q } = req.query;
+
     // Search by stop name, stop_id, or stop_code only (not routes)
     const stops = await sql`
       SELECT * FROM stops
