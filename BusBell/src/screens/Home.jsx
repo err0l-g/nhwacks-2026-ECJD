@@ -10,7 +10,7 @@ import {
 import AlarmCard from '../components/AlarmCard';
 
 
-export default function Home({ alarms = [], onAddPress, onToggleAlarm }) {
+export default function Home({ alarms = [], onAddPress, onToggleAlarm, onPressCard }) {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -30,7 +30,11 @@ export default function Home({ alarms = [], onAddPress, onToggleAlarm }) {
           data={alarms}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <AlarmCard item={item} onToggleAlarm={onToggleAlarm} />
+            <AlarmCard
+              item={item}
+              onToggleAlarm={onToggleAlarm}
+              onPressCard={onPressCard}
+            />
           )}
           contentContainerStyle={styles.listContainer}
           showsVerticalScrollIndicator={false}

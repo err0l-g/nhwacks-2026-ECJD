@@ -2,14 +2,21 @@ import { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, Animated, Dimensions, Alert } from 'react-native';
 import Home from './src/screens/Home';
 import Add from './src/screens/Add';
-import { initDatabase, getAlarms, insertAlarm, updateAlarmStatus } from './src/db/local-db-helper';
-const STORAGE_KEY = '@alarms_list';
+import {
+  initDatabase,
+  getAlarms,
+  insertAlarm,
+  updateAlarmStatus,
+  updateAlarm,
+  deleteAlarm
+} from './src/db/local-db-helper';
 
-export default function App() {
+export default function App() { 
   const [currentScreen, setCurrentScreen] = useState('Home');
   const [alarms, setAlarms] = useState([]);
+  const [editingAlarm, setEditingAlarm] = useState(null);
 
-  const SCREEN_HEIGHT = Dimensions.get('window').height;
+  const SCREEN_HEIGHT = Dimensions.get('window').height; 
   const slideAnim = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
 
   const handleToggle = async (id) => {
@@ -32,6 +39,42 @@ export default function App() {
     }
   };
 
+  const handleEditPress = (alarm) => {
+    setEditingAlarm(alarm);
+    setCurrentScreen('Add'); // Slide the modal up
+  };
+
+  const handleAddPress = () => {
+    setEditingAlarm(null); // Ensure form is empty
+    setCurrentScreen('Add');
+  };
+
+  const handleDelete = async (id) => {
+    await deleteAlarm(id);
+    const updated = await getAlarms();
+    setAlarms(updated);
+    setCurrentScreen('Home');
+  };
+
+  const saveAlarm = async (alarmData) => {
+    try {
+      if (editingAlarm) {
+        await updateAlarm(alarmData.id, alarmData);
+      } else {
+        await insertAlarm({
+          ...alarmData,
+          isEnabled: true
+        });
+      }
+
+      const updatedAlarms = await getAlarms();
+      setAlarms(updatedAlarms);
+      setEditingAlarm(null); // Clear editing state
+      setCurrentScreen('Home');
+    } catch (e) {
+      Alert.alert("Error", "Failed to save alarm");
+    }
+  };
 
   useEffect(() => {
     const setup = async () => {
@@ -69,7 +112,7 @@ const saveAlarm = async (newAlarm) => {
   useEffect(() => {
     Animated.timing(slideAnim, {
       toValue: currentScreen === 'Add' ? 100 : SCREEN_HEIGHT,
-      duration: 400,
+      duration: 300,
       useNativeDriver: true,
     }).start();
   }, [currentScreen]);
@@ -78,9 +121,10 @@ const saveAlarm = async (newAlarm) => {
     <View style={{ flex: 1, backgroundColor: '#000' }}>
       <View style={{ flex: 1, opacity: currentScreen === 'Add' ? 0.5 : 1 }}>
         <Home
-          onAddPress={() => setCurrentScreen('Add')}
+          onAddPress={handleAddPress}
           alarms={alarms}
           onToggleAlarm={handleToggle}
+          onPressCard={handleEditPress}
         />
       </View>
 
@@ -89,8 +133,11 @@ const saveAlarm = async (newAlarm) => {
         { transform: [{ translateY: slideAnim }] }
       ]}>
         <Add
+          key={editingAlarm ? `edit-${editingAlarm.id}` : 'new-alarm'}
+          initialData={editingAlarm}
           onBack={() => setCurrentScreen('Home')}
           onSave={saveAlarm}
+          onDelete={handleDelete}
         />
       </Animated.View>
     </View>
