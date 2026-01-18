@@ -1,10 +1,54 @@
 import { useState, useRef } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView, StatusBar, Animated,} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView, StatusBar, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import StopSelection from './StopSelection'
 
-export default function Add({ onBack }) {
+export default function Add({ onBack, onSave }) {
+  const [currentView, setCurrentView] = useState('form');
+  const [label, setLabel] = useState('');
+  const [selectedStop, setSelectedStop] = useState(null);
+  const [selectedThreshold, setSelectedThreshold] = useState(5);
+  const [isNotifyExpanded, setIsNotifyExpanded] = useState(false);
+  const notifyExpandAnim = useRef(new Animated.Value(0)).current;
   const [isRepeatExpanded, setIsRepeatExpanded] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
+
+  const resetForm = () => {
+    setLabel('');
+    setSelectedStop(null);
+    setSelectedDays([]);
+    setIsRepeatExpanded(false);
+    expandAnim.setValue(0);
+  };
+
+  const handleSave = () => {
+    if (!selectedStop) return alert("Please select a stop");
+    const dayChars = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+    const formattedDays = dayChars.map((char, i) =>
+      selectedDays.includes(i) ? char : '-'
+    ).join('');
+
+    const thresholdMs = selectedThreshold * 60 * 1000;
+
+    const alarmData = {
+      id: Date.now(),
+      label: label,
+      time: selectedStop.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
+      days: formattedDays,
+      threshold: thresholdMs,
+      stopID: selectedStop.id,
+      stopName: selectedStop.stopName,
+      busRoute: selectedStop.route
+    };
+
+    onSave(alarmData);
+    resetForm();
+  };
+
+  const notifyHeight = notifyExpandAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 150],
+  });
 
   const expandAnim = useRef(new Animated.Value(0)).current;
 
@@ -15,12 +59,22 @@ export default function Add({ onBack }) {
 
   const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
+  const toggleNotify = () => {
+    const toValue = isNotifyExpanded ? 0 : 1;
+    Animated.timing(notifyExpandAnim, {
+      toValue,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    setIsNotifyExpanded(!isNotifyExpanded);
+  };
+
   const toggleRepeat = () => {
     const toValue = isRepeatExpanded ? 0 : 1;
 
     Animated.timing(expandAnim, {
       toValue,
-      duration: 300,
+      duration: 500,
       useNativeDriver: false,
     }).start();
 
@@ -55,20 +109,37 @@ export default function Add({ onBack }) {
     );
   };
 
+  if (currentView === 'stops') {
+    return (
+      <StopSelection
+        onSelect={(selection) => {
+          setSelectedStop(selection);
+          setCurrentView('form');
+        }}
+        onBack={() => setCurrentView('form')}
+      />
+    );
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
-      {/* NAV BAR */}
       <View style={styles.navBar}>
-        <TouchableOpacity onPress={onBack} style={styles.iconCircle}>
+        <TouchableOpacity
+          onPress={() => {
+            resetForm();
+            onBack();
+          }}
+          style={styles.iconCircle}
+        >
           <Ionicons name="close" size={22} color="#52796F" />
         </TouchableOpacity>
 
         <Text style={styles.navTitle}>New Alarm</Text>
 
         <TouchableOpacity
-          onPress={onBack}
+          onPress={handleSave}
           style={[styles.iconCircle, { backgroundColor: '#84A98C' }]}
         >
           <Ionicons name="checkmark" size={22} color="#FFF" />
@@ -81,28 +152,61 @@ export default function Add({ onBack }) {
             <Text style={styles.rowLabel}>Label</Text>
             <TextInput
               style={styles.rowInput}
-              placeholder="Morning Commute"
+              placeholder="Alarm"
               textAlign="right"
+              value={label}
+              onChangeText={setLabel}
             />
           </View>
 
           <View style={styles.divider} />
 
-          <TouchableOpacity style={styles.row}>
+          <TouchableOpacity
+            style={styles.row}
+            onPress={() => setCurrentView('stops')}
+          >
             <Text style={styles.rowLabel}>Bus Stop</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Text style={styles.rowValue}>Select Stop </Text>
+              <Text style={styles.rowValue}>{selectedStop ? `${selectedStop.time.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} - ${selectedStop.stopName}`
+                : 'Select Stop'} </Text>
               <Ionicons name="chevron-forward" size={16} color="#84A98C" />
             </View>
           </TouchableOpacity>
 
           <View style={styles.divider} />
-          <TouchableOpacity style={styles.row}>
+          <TouchableOpacity style={styles.row} onPress={toggleNotify}>
             <Text style={styles.rowLabel}>Notify Me</Text>
-            <Text style={[styles.rowValue, { color: '#52796F' }]}>
-              5 mins
-            </Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={styles.rowValue}>{selectedThreshold} minutes</Text>
+              <Ionicons
+                name={isNotifyExpanded ? 'chevron-down' : 'chevron-forward'}
+                size={16}
+                color="#84A98C"
+              />
+            </View>
           </TouchableOpacity>
+
+          <Animated.View style={{ height: notifyHeight, overflow: 'hidden' }}>
+            <ScrollView nestedScrollEnabled={true} style={{ backgroundColor: '#F9FAFA' }}>
+              {Array.from({ length: 30 }, (_, i) => i + 1).map((min) => (
+                <TouchableOpacity
+                  key={min}
+                  style={styles.verticalOptionSimple}
+                  onPress={() => {
+                    setSelectedThreshold(min);
+                    toggleNotify();
+                  }}
+                >
+                  <Text style={[
+                    styles.minText,
+                    selectedThreshold === min && { color: '#84A98C', fontWeight: '800' }
+                  ]}>
+                    {min} {min === 1 ? 'minute' : 'minutes'}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </Animated.View>
 
           <View style={styles.divider} />
 
@@ -251,5 +355,35 @@ const styles = StyleSheet.create({
   },
   dayTextSelected: {
     color: '#FFF',
+  },
+  notifyScroll: {
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    paddingBottom: 20,
+  },
+  minText: {
+    color: '#84A98C',
+    fontWeight: '600',
+  },
+  minTextSelected: {
+    color: '#FFF',
+  },
+  verticalOption: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F1F3F2',
+  },
+  verticalOptionSimple: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+  },
+  minText: {
+    color: '#A0A0A0',
+    fontSize: 16,
   },
 });
