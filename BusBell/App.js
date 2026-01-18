@@ -1,42 +1,60 @@
 import { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, Animated, Dimensions, Alert } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Home from './src/screens/Home';
 import Add from './src/screens/Add';
-
+import { initDatabase, getAlarms, insertAlarm, updateAlarmStatus } from './src/db/local-db-helper';
 const STORAGE_KEY = '@alarms_list';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('Home');
-  const [alarms, setAlarms] = useState(null);
+  const [alarms, setAlarms] = useState([]);
 
   const SCREEN_HEIGHT = Dimensions.get('window').height;
   const slideAnim = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
 
+  const handleToggle = async (id) => {
+    const alarmToToggle = alarms.find(alarm => alarm.id === id);
+    if (!alarmToToggle) return;
+
+    const newStatus = !alarmToToggle.isEnabled;
+
+    setAlarms(prev => prev.map(alarm =>
+      alarm.id === id ? { ...alarm, isEnabled: newStatus } : alarm
+    ));
+
+    try {
+      await updateAlarmStatus(id, newStatus);
+    } catch (e) {
+      setAlarms(prev => prev.map(alarm =>
+        alarm.id === id ? { ...alarm, isEnabled: !newStatus } : alarm
+      ));
+      Alert.alert("Error", "Could not sync change to database");
+    }
+  };
+
+
   useEffect(() => {
-    const loadAlarms = async () => {
+    const setup = async () => {
       try {
-        const jsonValue = await AsyncStorage.getItem(STORAGE_KEY);
-        if (jsonValue != null) {
-          setAlarms(JSON.parse(jsonValue));
-        }
+        await initDatabase();
+        const data = await getAlarms();
+        setAlarms(data);
       } catch (e) {
-        Alert.alert("Error", "Failed to load alarms");
+        Alert.alert("Error", "Failed to initialize database");
       }
     };
-    loadAlarms();
+    setup();
   }, []);
 
   const saveAlarm = async (newAlarm) => {
     try {
-      const updatedAlarms = [newAlarm]; 
-      
+      await insertAlarm({
+        ...newAlarm,
+        isEnabled: true
+      });
+      const updatedAlarms = await getAlarms();
       setAlarms(updatedAlarms);
-      
-      const jsonValue = JSON.stringify(updatedAlarms);
-      console.log(jsonValue);
-      await AsyncStorage.setItem(STORAGE_KEY, jsonValue);
-      
+
       setCurrentScreen('Home');
     } catch (e) {
       Alert.alert("Error", "Failed to save alarm");
@@ -54,19 +72,20 @@ export default function App() {
   return (
     <View style={{ flex: 1, backgroundColor: '#000' }}>
       <View style={{ flex: 1, opacity: currentScreen === 'Add' ? 0.5 : 1 }}>
-        <Home 
-          onAddPress={() => setCurrentScreen('Add')} 
+        <Home
+          onAddPress={() => setCurrentScreen('Add')}
           alarms={alarms}
+          onToggleAlarm={handleToggle}
         />
       </View>
-      
+
       <Animated.View style={[
         styles.animatedModal,
         { transform: [{ translateY: slideAnim }] }
       ]}>
-        <Add 
-          onBack={() => setCurrentScreen('Home')} 
-          onSave={saveAlarm} 
+        <Add
+          onBack={() => setCurrentScreen('Home')}
+          onSave={saveAlarm}
         />
       </Animated.View>
     </View>
