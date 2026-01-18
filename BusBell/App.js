@@ -12,9 +12,6 @@ import {
 } from './src/db/local-db-helper';
 
 export default function App() {
-  const [busPositions, setBusPosition] = useState(null);
-  const [tripUpdates, setTripUpdates] = useState(null);
-  const [serviceAlerts, setServiceAlerts] = useState(null);
   const [currentScreen, setCurrentScreen] = useState('Home');
   const [alarms, setAlarms] = useState([]);
   const [editingAlarm, setEditingAlarm] = useState(null);
@@ -128,11 +125,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  centered: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   animatedModal: {
     position: 'absolute',
     left: 0, right: 0, bottom: 0, top: 0,
