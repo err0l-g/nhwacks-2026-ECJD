@@ -1,4 +1,4 @@
-package com.anonymous.BusBell.alarm
+package com.anonymous.BusBell.bridge
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
