@@ -57,9 +57,7 @@ export default function Add({
     const alarmData = {
       id: initialData ? initialData.id : Date.now(),
       label: label || "Alarm",
-      time: typeof selectedStop.time === 'object' && selectedStop.time instanceof Date
-        ? selectedStop.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
-        : selectedStop.time,
+      time: initialData ? initialData.time : `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')}`,
       days: formattedDays,
       threshold: thresholdMs,
       stopID: selectedStop.id,
@@ -116,6 +114,11 @@ export default function Add({
   useEffect(() => {
     if (initialData) {
       setLabel(String(initialData.label));
+
+      const [rawHour, displayMinute] = initialData.time ? initialData.time.split(":") : ["12", "00"]; // for noww
+
+      setSelectedHour(String(rawHour));
+      setSelectedMinute(String(displayMinute));
 
       const minutes = Math.round(initialData.threshold / 60000);
       setSelectedThreshold(minutes);
@@ -223,7 +226,7 @@ export default function Add({
               ))}
             </ScrollView>
             <ScrollView nestedScrollEnabled={true} style={{ backgroundColor: '#F9FAFA' }}>
-              {Array.from({ length: 60 }, (_, i) => i + 1).map((min) => (
+              {Array.from({ length: 59 }, (_, i) => i + 1).map((min) => (
                 <TouchableOpacity
                   key={min}
                   style={styles.verticalOptionSimple}
