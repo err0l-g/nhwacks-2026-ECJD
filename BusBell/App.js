@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, ActivityIndicator, ScrollView } from 'react-native';
 import { getAllTransitData } from './api/live-data-api.js';
+import {testConnection, getTripsByRoute } from './src/db/gtfs_static_db_helper.js'
 
 export default function App() {
   const [busPositions, setBusPosition] = useState(null);
@@ -10,6 +11,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
     const loadInitialData = async () => {
       try {
         const { positions, updates, alerts } = await getAllTransitData();
@@ -22,7 +24,24 @@ export default function App() {
         setLoading(false);
       }
     };
+const setup = async () => {
+    try {
+      console.log("Testing API connection...");
+      const connected = await testConnection();
+      
+      if (connected) {
+        console.log("✅ API connected!");
+        const trips = await getTripsByRoute('10232');
+        console.log(`Found ${trips.length} trips`);
+        console.log(trips[0]) 
+      }
+    } catch (error) {
+      console.error("Setup error:", error);
+    }
+  };
 
+
+  setup();
     loadInitialData();
   }, []);
 
