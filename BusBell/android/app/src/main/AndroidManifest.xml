@@ -33,7 +33,7 @@
     </activity>
 
     <service
-        android:name=".alarm.NotificationService"
+        android:name=".service.NotificationService"
         android:enabled="true"
         android:exported="false"
         android:foregroundServiceType="specialUse" />

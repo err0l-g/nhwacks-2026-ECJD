@@ -15,7 +15,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 
 import expo.modules.ApplicationLifecycleDispatcher
 import expo.modules.ReactNativeHostWrapper
-import com.anonymous.BusBell.alarm.AlarmPackage
+import com.anonymous.BusBell.bridge.AlarmPackage
 
 class MainApplication : Application(), ReactApplication {
 
